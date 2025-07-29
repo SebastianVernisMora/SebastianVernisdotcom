@@ -1,0 +1,1 @@
+df_mapping.to_csv("mapeo_multimedia.csv", index=False)

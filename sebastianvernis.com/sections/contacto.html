@@ -1,0 +1,43 @@
+<!-- Sección de Contacto -->
+<section id="contacto">
+  <h1>Contáctame</h1>
+  <form id="profilingForm" novalidate>
+      <div class="form-group">
+        <label for="contactNombre">Nombre Completo:</label>
+        <input type="text" id="contactNombre" name="nombre" required>
+      </div>
+      <div class="form-group">
+        <label for="contactEmail">Correo Electrónico:</label>
+        <input type="email" id="contactEmail" name="email" required>
+      </div>
+      <div class="form-group">
+        <label for="contactEmpresa">Nombre de la Empresa (Opcional):</label>
+        <input type="text" id="contactEmpresa" name="empresa">
+      </div>
+      <div class="form-group">
+        <label for="contactSitioWeb">Sitio Web Actual (Opcional):</label>
+        <input type="url" id="contactSitioWeb" name="sitioWeb" placeholder="https://www.ejemplo.com">
+      </div>
+      <div class="form-group">
+        <label for="contactServicioInteres">¿En qué servicio estás interesado/a?</label>
+        <select id="contactServicioInteres" name="servicioInteres" required>
+          <option value="" disabled selected>-- Elige una opción --</option>
+          <option value="diseno_desarrollo_web">Diseño y Desarrollo Web</option>
+          <option value="ecommerce_pagos">E-commerce y Pagos</option>
+          <option value="marketing_digital">Marketing Digital</option>
+          <option value="servicios_tecnicos_consultoria">Servicios Técnicos y Consultoría</option>
+          <option value="otro">Otro (por favor, especifica en el mensaje)</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="contactMensaje">Tu Mensaje:</label>
+        <textarea id="contactMensaje" name="mensaje" rows="5" placeholder="Cuéntame más sobre tu proyecto o consulta..." required></textarea>
+      </div>
+      <div class="form-group terms-group">
+        <input type="checkbox" id="contactTerminos" name="terminos" value="aceptados" required>
+        <label for="contactTerminos">He leído y acepto los <a href="#terminos" target="_blank">Términos de Servicio</a> y la <a href="#privacidad" target="_blank">Política de Privacidad</a>.</label>
+      </div>
+      <button type="submit">Enviar Mensaje</button>
+      <div id="form-status-message"></div>
+  </form>
+</section>

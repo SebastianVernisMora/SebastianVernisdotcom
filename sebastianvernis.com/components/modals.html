@@ -1,0 +1,63 @@
+<!-- Modal para detalles del proyecto -->
+<div id="project-modal" class="modal fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center p-4 hidden opacity-0 visibility-hidden overflow-y-auto">
+  <div class="modal-content bg-[#1c1c1c] w-full max-w-4xl mx-auto rounded-lg shadow-2xl transform scale-95 my-8 border border-gray-700">
+      <div class="p-4 flex justify-between items-center border-b border-gray-700">
+          <h3 id="modal-title" class="text-2xl font-bold text-[#e91e63]"></h3>
+          <button class="close-modal-btn text-gray-400 hover:text-white text-4xl">&times;</button>
+      </div>
+      <div id="modal-content-body" class="p-6 md:p-8"></div>
+  </div>
+</div>
+
+<!-- Modal para Captura de Leads del Cotizador -->
+<div id="lead-modal-overlay" class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center p-4 hidden z-50">
+  <div id="lead-modal-content" class="bg-[#1c1c1c] w-full max-w-lg mx-auto rounded-lg shadow-2xl border border-gray-700">
+    <div class="p-4 bg-gray-800 flex justify-between items-center rounded-t-lg border-b border-gray-700">
+      <h2 class="text-xl font-bold text-white">Finalizar Cotización</h2>
+      <button id="close-lead-modal-btn" class="text-gray-400 hover:text-red-400 text-2xl">&times;</button>
+    </div>
+    <div class="p-8">
+      <p class="mb-4 text-gray-300">Por favor, complete sus datos para generar su folio de cotización y ver la vista previa del contrato.</p>
+      <form id="lead-form">
+        <div class="space-y-4">
+          <div>
+            <label for="name" class="block text-sm font-medium text-gray-300">Nombre Completo</label>
+            <input type="text" id="name" name="name" required class="mt-1 block w-full px-3 py-2 border border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-purple-500 focus:border-purple-500 bg-gray-700 text-white">
+          </div>
+          <div>
+            <label for="phone" class="block text-sm font-medium text-gray-300">Número Telefónico (10 dígitos)</label>
+            <input type="tel" id="phone" name="phone" required pattern="[0-9]{10}" title="Debe ser un número de 10 dígitos" class="mt-1 block w-full px-3 py-2 border border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-purple-500 focus:border-purple-500 bg-gray-700 text-white">
+          </div>
+          <div>
+            <label for="email" class="block text-sm font-medium text-gray-300">Correo Electrónico</label>
+            <input type="email" id="email" name="email" required class="mt-1 block w-full px-3 py-2 border border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-purple-500 focus:border-purple-500 bg-gray-700 text-white">
+          </div>
+          <div class="flex items-center">
+            <input id="privacy" name="privacy" type="checkbox" required class="h-4 w-4 text-purple-600 focus:ring-purple-500 border-gray-600 rounded bg-gray-700">
+            <label for="privacy" class="ml-2 block text-sm text-gray-300">Acepto la <a href="#" class="text-purple-400 hover:underline">política de privacidad</a>.</label>
+          </div>
+        </div>
+        <div class="mt-6">
+          <button type="submit" class="w-full bg-purple-600 hover:bg-purple-700 text-white py-3 px-4 rounded-lg font-semibold text-lg transition-colors">
+            Generar mi Folio y Ver Contrato
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Modal para Mensaje de Éxito del Cotizador -->
+<div id="success-modal-overlay" class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center p-4 hidden z-50">
+  <div class="bg-[#1c1c1c] w-full max-w-lg mx-auto rounded-lg shadow-2xl text-center p-8 border border-gray-700">
+    <i class="fas fa-check-circle text-green-500 text-5xl mb-4"></i>
+    <h2 class="text-2xl font-bold mb-2 text-white">¡Cotización Generada con Éxito!</h2>
+    <p class="text-gray-300 mb-4">Hemos recibido sus datos. Su cotización ha sido guardada con el siguiente folio:</p>
+    <p id="folio-display" class="text-2xl font-mono bg-gray-800 text-purple-400 font-bold p-3 rounded-md mb-6"></p>
+    <p class="text-gray-300 mb-4">Guarde este folio, es su llave para consultar el estado de su proyecto en nuestro portal de clientes.</p>
+    <button id="ir-portal-btn" class="w-full bg-purple-600 hover:bg-purple-700 text-white py-3 px-4 rounded-lg font-semibold text-lg mb-4 transition-colors">
+      Ir al Portal de Clientes
+    </button>
+    <button id="close-success-modal-btn" class="text-gray-400 hover:underline">Cerrar</button>
+  </div>
+</div>
