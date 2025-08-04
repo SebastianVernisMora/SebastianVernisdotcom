@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tu Próximo Nivel - Academia de Idiomas</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Feather Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <style>
+        body { font-family: 'Poppins', sans-serif; background-color: #f8fafc; }
+        .nav-link.active { color: #0d9488; /* teal-600 */ font-weight: 600; }
+        .nav-button.active { background-color: #0f766e; /* teal-700 */ box-shadow: 0 0 0 3px #99f6e4; /* teal-200 */ }
+        .nav-link-mobile.active { background-color: #ccfbf1; /* teal-50 */ color: #0d9488; font-weight: 600; }
+        .page-section { animation: fadeIn 0.6s ease-in-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .hero-bg-language {
+            background-color: #134e4a;
+            background-image: linear-gradient(rgba(19, 78, 74, 0.8), rgba(19, 78, 74, 0.8)), url('https://images.unsplash.com/photo-1533745848184-3db07256e166?q=80&w=1470&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+        }
+        .modal { transition: opacity 0.3s ease, visibility 0.3s ease; }
+        .modal-content { transition: transform 0.3s ease; }
+        .modal.hidden { pointer-events: none; }
+        .modal.hidden .modal-content { transform: scale(0.95); }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <!-- Header -->
+    <header class="bg-white/95 backdrop-blur-md shadow-sm sticky top-0 z-40">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#inicio" class="nav-trigger cursor-pointer text-xl sm:text-2xl font-bold text-gray-800 flex items-center">
+                <i data-feather="globe" class="text-teal-600 mr-2"></i> Tu Próximo <span class="text-teal-600 ml-1">Nivel</span>
+            </a>
+            <div id="desktop-menu" class="hidden md:flex space-x-8 items-center font-sans">
+                <a href="#inicio" class="nav-trigger nav-link cursor-pointer text-gray-600 hover:text-teal-600">Inicio</a>
+                <a href="#cursos" class="nav-trigger nav-link cursor-pointer text-gray-600 hover:text-teal-600">Cursos</a>
+                <a href="#programas" class="nav-trigger nav-link cursor-pointer text-gray-600 hover:text-teal-600">Programas</a>
+                <a href="#portal-alumnos" class="nav-trigger nav-link cursor-pointer text-gray-600 hover:text-teal-600">Portal de Alumnos</a>
+                <a href="#contacto" class="nav-trigger nav-button cursor-pointer bg-teal-600 text-white px-5 py-2 rounded-lg font-semibold hover:bg-teal-700">Contacto</a>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden text-gray-700 focus:outline-none"><i data-feather="menu"></i></button>
+        </nav>
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 border-t"><a href="#inicio" class="nav-trigger nav-link-mobile block py-2 px-3 rounded-md text-gray-600 hover:bg-gray-100 cursor-pointer">Inicio</a><a href="#cursos" class="nav-trigger nav-link-mobile block py-2 px-3 rounded-md text-gray-600 hover:bg-gray-100 cursor-pointer">Cursos</a><a href="#programas" class="nav-trigger nav-link-mobile block py-2 px-3 rounded-md text-gray-600 hover:bg-gray-100 cursor-pointer">Programas</a><a href="#portal-alumnos" class="nav-trigger nav-link-mobile block py-2 px-3 rounded-md text-gray-600 hover:bg-gray-100 cursor-pointer">Portal de Alumnos</a><a href="#contacto" class="nav-trigger nav-link-mobile block mt-2 bg-teal-600 text-white text-center px-4 py-2 rounded-lg hover:bg-teal-700 cursor-pointer">Contacto</a></div>
+    </header>
+
+    <main>
+        <!-- Sections -->
+        <section id="inicio" class="page-section"><div class="hero-bg-language text-white"><div class="container mx-auto px-6 text-center py-24 md:py-40"><h1 class="text-4xl md:text-5xl font-extrabold leading-tight mb-4">Domina un Nuevo Idioma y Alcanza Tus Metas</h1><p class="text-lg md:text-xl text-gray-200 max-w-3xl mx-auto mb-8">Con nuestra metodología práctica y profesores expertos, hablar un nuevo idioma está más cerca de lo que imaginas. ¡Comienza tu viaje hoy!</p><a href="#cursos" class="nav-trigger cursor-pointer bg-teal-500 text-white px-8 py-3 rounded-lg font-semibold text-lg hover:bg-teal-600 transition duration-300">Ver Cursos</a></div></div></section>
+        
+        <section id="cursos" class="page-section py-16 md:py-20 hidden"><div class="container mx-auto px-6"><div class="text-center mb-12 md:mb-16"><h2 class="text-3xl md:text-4xl font-bold">Nuestros Cursos de Idiomas</h2><p class="text-gray-600 mt-2 max-w-2xl mx-auto">Elige el plan que mejor se adapte a tu ritmo y objetivos. Todos nuestros cursos están diseñados para un aprendizaje efectivo y ameno.</p></div><div class="grid grid-cols-1 md:grid-cols-3 gap-8"><div class="bg-white p-8 rounded-lg text-center border shadow-sm hover:shadow-xl transition-shadow"><div class="flex justify-center mb-4"><div class="bg-teal-100 text-teal-600 rounded-full p-4"><i data-feather="user" class="w-10 h-10"></i></div></div><h3 class="text-xl font-bold mb-2">Clase de Francés Personalizada</h3><p class="text-gray-600 mb-4">Avanza a tu propio ritmo con un plan de estudios 100% adaptado a tus necesidades.</p><p class="text-2xl font-bold text-teal-700 mb-6">$1,600 MXN</p><button class="booking-btn w-full bg-teal-600 text-white font-bold py-2 rounded-lg hover:bg-teal-700" data-service="Clase de Francés Personalizada" data-price="1600">Inscribirse</button></div><div class="bg-white p-8 rounded-lg text-center border shadow-sm hover:shadow-xl transition-shadow"><div class="flex justify-center mb-4"><div class="bg-teal-100 text-teal-600 rounded-full p-4"><i data-feather="users" class="w-10 h-10"></i></div></div><h3 class="text-xl font-bold mb-2">Clase Individual de Inglés</h3><p class="text-gray-600 mb-4">Perfecciona tu inglés con la atención exclusiva de un profesor certificado.</p><p class="text-2xl font-bold text-teal-700 mb-6">$1,500 MXN</p><button class="booking-btn w-full bg-teal-600 text-white font-bold py-2 rounded-lg hover:bg-teal-700" data-service="Clase Individual de Inglés" data-price="1500">Inscribirse</button></div><div class="bg-white p-8 rounded-lg text-center border shadow-sm hover:shadow-xl transition-shadow"><div class="flex justify-center mb-4"><div class="bg-teal-100 text-teal-600 rounded-full p-4"><i data-feather="message-circle" class="w-10 h-10"></i></div></div><h3 class="text-xl font-bold mb-2">Clase de Conversación en Español</h3><p class="text-gray-600 mb-4">Gana fluidez y confianza hablando sobre temas de actualidad en un ambiente relajado.</p><p class="text-2xl font-bold text-teal-700 mb-6">$1,400 MXN</p><button class="booking-btn w-full bg-teal-600 text-white font-bold py-2 rounded-lg hover:bg-teal-700" data-service="Clase de Conversación en Español" data-price="1400">Inscribirse</button></div></div></div></section>
+        
+        <section id="programas" class="page-section py-16 md:py-20 bg-white hidden"><div class="container mx-auto px-6"><div class="text-center mb-12 md:mb-16"><h2 class="text-3xl md:text-4xl font-bold">Programas de Certificación Oficial</h2><p class="text-gray-600 mt-2 max-w-2xl mx-auto">Preparamos para los exámenes de certificación más reconocidos a nivel mundial. Asegura tu éxito con nuestros cursos especializados.</p></div><div class="max-w-4xl mx-auto space-y-6"><div class="bg-gray-50 p-6 rounded-lg border flex items-center gap-6"><div class="bg-blue-100 text-blue-600 p-4 rounded-lg"><i data-feather="award" class="w-8 h-8"></i></div><div><h3 class="font-bold text-lg">TOEFL</h3><p class="text-gray-600">Alcanza el puntaje que necesitas para estudiar o trabajar en el extranjero.</p></div></div><div class="bg-gray-50 p-6 rounded-lg border flex items-center gap-6"><div class="bg-red-100 text-red-600 p-4 rounded-lg"><i data-feather="award" class="w-8 h-8"></i></div><div><h3 class="font-bold text-lg">CAPLE</h3><p class="text-gray-600">Certifica tu dominio del portugués como lengua extranjera.</p></div></div><div class="bg-gray-50 p-6 rounded-lg border flex items-center gap-6"><div class="bg-green-100 text-green-600 p-4 rounded-lg"><i data-feather="award" class="w-8 h-8"></i></div><div><h3 class="font-bold text-lg">DAFL</h3><p class="text-gray-600">Obtén tu diploma oficial de lengua francesa reconocido internacionalmente.</p></div></div></div></div></section>
+        
+        <section id="portal-alumnos" class="page-section py-16 md:py-20 hidden"><div class="container mx-auto px-6 max-w-4xl">
+            <div id="login-container">
+                <div class="bg-white p-8 rounded-lg shadow-md border max-w-md mx-auto">
+                    <h2 class="text-2xl font-bold text-center mb-6">Portal de Alumnos</h2>
+                    <form id="login-form">
+                        <div class="mb-4"><label for="username" class="block font-semibold mb-1">Usuario</label><input type="text" id="username" class="w-full p-3 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-500"></div>
+                        <div class="mb-6"><label for="password" class="block font-semibold mb-1">Contraseña</label><input type="password" id="password" class="w-full p-3 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-500"></div>
+                        <p id="login-error" class="text-red-500 text-sm text-center mb-4 hidden">Usuario o contraseña incorrectos.</p>
+                        <button type="submit" class="w-full bg-teal-600 text-white p-3 rounded-lg font-bold hover:bg-teal-700">Ingresar</button>
+                    </form>
+                </div>
+            </div>
+            <div id="dashboard-container" class="hidden">
+                 <div class="flex justify-between items-center mb-8">
+                    <h2 class="text-2xl md:text-3xl font-bold">Bienvenido, Alumno</h2>
+                    <button id="logout-btn" class="text-sm font-semibold text-gray-600 hover:text-teal-600 flex items-center gap-2"><i data-feather="log-out" class="w-4 h-4"></i>Cerrar Sesión</button>
+                 </div>
+                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-white p-6 rounded-lg shadow-md border">
+                        <h3 class="text-xl font-bold mb-4 flex items-center gap-2"><i data-feather="calendar" class="text-teal-600"></i>Mis Horarios</h3>
+                        <ul class="space-y-2 text-gray-600">
+                            <li class="p-2 bg-gray-50 rounded">Inglés Avanzado: Lunes y Miércoles - 7:00 PM</li>
+                            <li class="p-2 bg-gray-50 rounded">Francés Conversacional: Viernes - 6:00 PM</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md border">
+                        <h3 class="text-xl font-bold mb-4 flex items-center gap-2"><i data-feather="download" class="text-teal-600"></i>Material de Apoyo</h3>
+                        <ul class="space-y-2">
+                            <li><a href="#" class="flex items-center gap-2 text-blue-600 hover:underline"><i data-feather="file-text" class="w-4 h-4"></i> Guía de Verbos Irregulares.pdf</a></li>
+                            <li><a href="#" class="flex items-center gap-2 text-blue-600 hover:underline"><i data-feather="file-text" class="w-4 h-4"></i> Ejercicios de Francés A2.pdf</a></li>
+                        </ul>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md border md:col-span-2">
+                        <h3 class="text-xl font-bold mb-4 flex items-center gap-2"><i data-feather="dollar-sign" class="text-teal-600"></i>Mis Pagos</h3>
+                        <div class="flex flex-col sm:flex-row justify-between items-center bg-green-50 p-4 rounded-lg border border-green-200">
+                            <div><p>Próximo pago (Mensualidad Julio): <span class="font-bold">$1,500 MXN</span></p><p class="text-sm text-gray-500">Vencimiento: 31 de Julio, 2025</p></div>
+                            <button class="payment-btn mt-4 sm:mt-0 bg-green-600 text-white font-bold py-2 px-6 rounded-lg hover:bg-green-700" data-service="Mensualidad Julio" data-price="1500">Pagar Ahora</button>
+                        </div>
+                    </div>
+                 </div>
+            </div>
+        </div></section>
+        
+        <section id="contacto" class="page-section py-16 md:py-20 hidden"><div class="container mx-auto px-6"><div class="text-center mb-12 md:mb-16"><h2 class="text-3xl md:text-4xl font-bold">Contáctanos</h2><p class="text-gray-600 mt-2 max-w-2xl mx-auto">¿Tienes alguna duda? Escríbenos y nuestro equipo te responderá a la brevedad.</p></div><div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto"><div class="bg-white p-8 rounded-lg border shadow-sm"><form id="contact-form"><div class="mb-5"><label for="name_contact" class="block text-gray-700 mb-1 font-bold">Nombre</label><input type="text" id="name_contact" name="name" required class="w-full p-3 rounded border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-500 transition"></div><div class="mb-5"><label for="email_contact" class="block text-gray-700 mb-1 font-bold">Correo Electrónico</label><input type="email" id="email_contact" name="email" required class="w-full p-3 rounded border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-500 transition"></div><div class="mb-5"><label for="message_contact" class="block text-gray-700 mb-1 font-bold">Mensaje</label><textarea id="message_contact" name="message" rows="5" required class="w-full p-3 rounded border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-500 transition"></textarea></div><button type="submit" class="w-full bg-teal-600 text-white p-3 rounded-lg font-bold hover:bg-teal-700 transition duration-300">Enviar Mensaje</button></form></div><div class="space-y-6 pt-4"><div class="flex items-start"><i data-feather="map-pin" class="w-6 h-6 mr-4 mt-1 text-teal-600 flex-shrink-0"></i><div><h4 class="font-bold">Nuestra Academia</h4><p>Av. Cobá 202, Cancún, Q.R., México</p></div></div><div class="flex items-start"><i data-feather="mail" class="w-6 h-6 mr-4 mt-1 text-teal-600 flex-shrink-0"></i><div><h4 class="font-bold">Email</h4><a href="mailto:contacto@sebastianvernis.com" class="hover:text-teal-600">contacto@sebastianvernis.com</a></div></div><div class="flex items-start"><i data-feather="phone" class="w-6 h-6 mr-4 mt-1 text-teal-600 flex-shrink-0"></i><div><h4 class="font-bold">Teléfono</h4><a href="tel:+5213312345678" class="hover:text-teal-600">52-1-33-12345678</a></div></div></div></div></div></section>
+    </main>
+
+    <footer class="bg-gray-800 text-white"><div class="container mx-auto px-6 py-12"><div class="grid grid-cols-1 md:grid-cols-4 gap-8"><div><h3 class="text-xl font-bold mb-4 flex items-center">Tu Próximo <span class="text-teal-500 ml-1">Nivel</span></h3><p class="text-gray-400 text-sm">Alcanza tus metas con nosotros.</p></div><div><h3 class="text-lg font-bold mb-4">Navegación</h3><ul class="space-y-2 text-sm"><li><a href="#inicio" class="nav-trigger cursor-pointer text-gray-400 hover:text-white">Inicio</a></li><li><a href="#cursos" class="nav-trigger cursor-pointer text-gray-400 hover:text-white">Cursos</a></li><li><a href="#programas" class="nav-trigger cursor-pointer text-gray-400 hover:text-white">Programas</a></li><li><a href="#portal-alumnos" class="nav-trigger cursor-pointer text-gray-400 hover:text-white">Portal de Alumnos</a></li></ul></div><div><h3 class="text-lg font-bold mb-4">Legal</h3><ul class="space-y-2 text-sm"><li><a href="#" class="text-gray-400 hover:text-white">Política de Privacidad</a></li><li><a href="#" class="text-gray-400 hover:text-white">Términos y Condiciones</a></li></ul></div><div><h3 class="text-lg font-bold mb-4">Síguenos</h3><div class="flex space-x-4"><a href="#" class="text-gray-400 hover:text-teal-500 transition-colors"><i data-feather="facebook"></i></a><a href="#" class="text-gray-400 hover:text-teal-500 transition-colors"><i data-feather="instagram"></i></a><a href="#" class="text-gray-400 hover:text-teal-500 transition-colors"><i data-feather="youtube"></i></a></div></div></div><div class="mt-10 border-t border-gray-700 pt-8 text-center text-gray-500 text-sm"><p>&copy; 2025 Tu Próximo Nivel. Creado por Sebastián Vernis. Todos los derechos reservados.</p></div></div></footer>
+
+    <!-- Modals -->
+    <div id="payment-modal" class="modal fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center p-4 z-50 hidden opacity-0 visibility-hidden"><div class="modal-content bg-white w-full max-w-md mx-auto rounded-lg shadow-2xl p-8 transform scale-95"><div class="flex justify-between items-center mb-6"><h3 class="text-2xl font-bold">Realizar Pago</h3><button class="close-modal-btn text-gray-500 hover:text-gray-800 text-3xl">&times;</button></div><form id="payment-form"><div class="mb-4"><label class="block text-gray-700 font-bold mb-2">Concepto:</label><p id="payment-service-name" class="text-lg text-teal-700 font-semibold"></p></div><div class="mb-4"><label for="card_number">Número de Tarjeta</label><input type="text" id="card_number" placeholder="**** **** **** ****" required class="w-full p-2 mt-1 rounded border border-gray-300"></div><div class="grid grid-cols-2 gap-4"><div class="mb-4"><label for="card_expiry">Expiración</label><input type="text" id="card_expiry" placeholder="MM/AA" required class="w-full p-2 mt-1 rounded border border-gray-300"></div><div class="mb-4"><label for="card_cvc">CVC</label><input type="text" id="card_cvc" placeholder="***" required class="w-full p-2 mt-1 rounded border border-gray-300"></div></div><button type="submit" class="w-full mt-4 bg-teal-600 text-white font-bold py-3 rounded-lg hover:bg-teal-700">Pagar <span id="payment-total"></span></button></form></div></div>
+    <div id="confirmation-modal" class="modal fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center p-4 z-50 hidden opacity-0 visibility-hidden"><div class="modal-content bg-white w-full max-w-md mx-auto rounded-lg shadow-2xl p-8 text-center transform scale-95"><div id="confirmation-icon" class="flex justify-center mb-4"></div><h3 id="confirmation-title" class="text-2xl font-bold mb-4"></h3><p id="confirmation-message" class="text-gray-600 mb-6"></p><button class="close-modal-btn w-full bg-gray-700 text-white p-3 rounded-lg font-bold hover:bg-gray-800 transition">Cerrar</button></div></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            feather.replace();
+            
+            const mainContainer = document.querySelector('main');
+            const navTriggers = document.querySelectorAll('.nav-trigger');
+            const sections = document.querySelectorAll('.page-section');
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const modals = document.querySelectorAll('.modal');
+            const paymentModal = document.getElementById('payment-modal');
+            const confirmationModal = document.getElementById('confirmation-modal');
+            
+            function showSection(targetId) { sections.forEach(s => s.classList.add('hidden')); const el = document.querySelector(targetId); if(el) el.classList.remove('hidden'); updateActiveLinks(targetId); }
+            function updateActiveLinks(targetId) { document.querySelectorAll('.nav-link, .nav-button, .nav-link-mobile').forEach(l => { l.classList.remove('active'); if(l.getAttribute('href') === targetId) l.classList.add('active'); }); }
+            navTriggers.forEach(t => t.addEventListener('click', e => { e.preventDefault(); const id = e.currentTarget.getAttribute('href'); showSection(id); window.scrollTo(0,0); if(!mobileMenu.classList.contains('hidden')) mobileMenu.classList.add('hidden'); }));
+            mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+
+            function openModal(modal) { modal.classList.remove('hidden'); setTimeout(() => modal.classList.remove('opacity-0', 'visibility-hidden'), 10); }
+            function closeModal(modal) { modal.classList.add('opacity-0', 'visibility-hidden'); setTimeout(() => modal.classList.add('hidden'), 300); }
+            modals.forEach(m => m.addEventListener('click', e => { if (e.target.classList.contains('modal') || e.target.classList.contains('close-modal-btn')) closeModal(m); }));
+
+            function showConfirmation(type) {
+                const icon = confirmationModal.querySelector('#confirmation-icon');
+                const title = confirmationModal.querySelector('#confirmation-title');
+                const msg = confirmationModal.querySelector('#confirmation-message');
+                icon.innerHTML = `<div class="bg-green-100 text-green-700 rounded-full p-4"><i data-feather="check-circle" class="w-12 h-12"></i></div>`;
+                if (type === 'payment') { title.textContent = '¡Pago Exitoso!'; msg.textContent = 'Gracias por tu pago. Tu inscripción está confirmada.';
+                } else { title.textContent = 'Mensaje Enviado'; msg.textContent = 'Gracias por contactarnos. Te responderemos a la brevedad.'; }
+                feather.replace();
+                openModal(confirmationModal);
+            }
+
+            mainContainer.addEventListener('click', function(e) {
+                const paymentBtn = e.target.closest('.booking-btn, .payment-btn');
+                if(paymentBtn) {
+                    paymentModal.querySelector('#payment-service-name').textContent = paymentBtn.dataset.service;
+                    paymentModal.querySelector('#payment-total').textContent = `$${parseFloat(paymentBtn.dataset.price).toLocaleString('es-MX')} MXN`;
+                    openModal(paymentModal);
+                }
+            });
+
+            document.getElementById('payment-form')?.addEventListener('submit', e => { e.preventDefault(); closeModal(paymentModal); showConfirmation('payment'); e.target.reset(); });
+            document.getElementById('contact-form')?.addEventListener('submit', e => { e.preventDefault(); showConfirmation('contact'); e.target.reset(); });
+            
+            const loginContainer = document.getElementById('login-container');
+            const dashboardContainer = document.getElementById('dashboard-container');
+            const loginForm = document.getElementById('login-form');
+            const logoutBtn = document.getElementById('logout-btn');
+            const loginError = document.getElementById('login-error');
+
+            loginForm?.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const username = loginForm.querySelector('#username').value;
+                const password = loginForm.querySelector('#password').value;
+                if (username === 'Alumno' && password === 'Alumno123') {
+                    loginContainer.classList.add('hidden');
+                    dashboardContainer.classList.remove('hidden');
+                    loginError.classList.add('hidden');
+                } else {
+                    loginError.classList.remove('hidden');
+                }
+            });
+
+            logoutBtn?.addEventListener('click', () => {
+                loginContainer.classList.remove('hidden');
+                dashboardContainer.classList.add('hidden');
+                loginForm.reset();
+            });
+
+            showSection('#inicio');
+        });
+    </script>
+</body>
+</html>
+

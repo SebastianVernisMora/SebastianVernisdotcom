@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sabores del Alma - Fusión México-Oriental</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Feather Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <style>
+        .font-serif { font-family: 'Cinzel', serif; }
+        .font-sans { font-family: 'Montserrat', sans-serif; }
+        body { font-family: 'Montserrat', sans-serif; background-color: #1c1c1c; }
+        .nav-link.active { color: #d4af37; /* Gold color */ font-weight: 700; border-bottom: 2px solid #d4af37; }
+        .nav-button.active { background-color: #b8860b; /* Darker Gold */ box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.4); }
+        .nav-link-mobile.active { background-color: #3a3a3a; color: #d4af37; font-weight: 700; }
+        .page-section { animation: fadeIn 0.8s ease-in-out; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .hero-bg-restaurant {
+            background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=1374&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        .modal { transition: opacity 0.3s ease, visibility 0.3s ease; }
+        .modal-content { transition: transform 0.3s ease; }
+        .modal.hidden { pointer-events: none; }
+        .modal.hidden .modal-content { transform: scale(0.95); }
+    </style>
+</head>
+<body class="text-gray-300">
+
+    <!-- Header -->
+    <header class="bg-black/80 backdrop-blur-md shadow-lg sticky top-0 z-40">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#inicio" class="nav-trigger cursor-pointer text-2xl font-serif font-bold text-white">Sabores <span class="text-[#d4af37]">del Alma</span></a>
+            <div id="desktop-menu" class="hidden md:flex space-x-8 items-center font-sans">
+                <a href="#inicio" class="nav-trigger nav-link cursor-pointer text-gray-300 hover:text-[#d4af37] pb-1">Inicio</a>
+                <a href="#menu" class="nav-trigger nav-link cursor-pointer text-gray-300 hover:text-[#d4af37] pb-1">Menú</a>
+                <a href="#galeria" class="nav-trigger nav-link cursor-pointer text-gray-300 hover:text-[#d4af37] pb-1">Galería</a>
+                <a href="#reservas" class="nav-trigger nav-button cursor-pointer bg-[#d4af37] text-black px-5 py-2 rounded-full font-bold hover:bg-[#b8860b]">Reservar</a>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden text-gray-300 focus:outline-none"><i data-feather="menu"></i></button>
+        </nav>
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 border-t border-gray-700"><a href="#inicio" class="nav-trigger nav-link-mobile block py-2 px-3 rounded-md text-gray-300 hover:bg-gray-800 cursor-pointer">Inicio</a><a href="#menu" class="nav-trigger nav-link-mobile block py-2 px-3 rounded-md text-gray-300 hover:bg-gray-800 cursor-pointer">Menú</a><a href="#galeria" class="nav-trigger nav-link-mobile block py-2 px-3 rounded-md text-gray-300 hover:bg-gray-800 cursor-pointer">Galería</a><a href="#reservas" class="nav-trigger nav-link-mobile block mt-2 bg-[#d4af37] text-black text-center px-4 py-2 rounded-lg hover:bg-[#b8860b] cursor-pointer">Reservar</a></div>
+    </header>
+
+    <main>
+        <!-- Sections -->
+        <section id="inicio" class="page-section hero-bg-restaurant text-white"><div class="container mx-auto px-6 text-center py-24 md:py-48"><h1 class="text-4xl md:text-6xl font-serif font-bold leading-tight mb-4">Donde México y Oriente se encuentran</h1><p class="text-lg md:text-xl text-gray-200 max-w-3xl mx-auto mb-10 font-sans">Una experiencia culinaria que fusiona la riqueza de la tradición mexicana con la sutileza y el misticismo de los sabores orientales.</p><a href="#menu" class="nav-trigger cursor-pointer bg-[#d4af37] text-black px-8 py-3 rounded-full font-bold text-lg hover:bg-[#b8860b] transition duration-300">Descubrir el Menú</a></div></section>
+        
+        <section id="menu" class="page-section py-20 bg-[#121212] hidden"><div class="container mx-auto px-6"><div class="text-center mb-16"><h2 class="text-3xl md:text-4xl font-serif font-bold text-white">Nuestro Menú</h2><p class="text-gray-400 mt-2 max-w-2xl mx-auto">Cada platillo es un viaje, una historia contada a través de ingredientes frescos y técnicas ancestrales.</p></div><div class="max-w-4xl mx-auto space-y-12"><div class="border-b-2 border-dashed border-yellow-800/50 pb-8"> <h3 class="text-2xl font-serif font-bold text-[#d4af37] mb-6">Entradas del Alma</h3><div class="space-y-4"><div><div class="flex justify-between"><h4 class="font-bold text-lg text-white">Tacos de Pato Pekín al Pastor</h4><span class="font-bold text-white">$250 MXN</span></div><p class="text-sm text-gray-400">Pato laqueado con adobo de pastor, servido en tortilla de maíz azul con piña y salsa de chile morita.</p></div><div><div class="flex justify-between"><h4 class="font-bold text-lg text-white">Gyozas de Cochinita Pibil</h4><span class="font-bold text-white">$220 MXN</span></div><p class="text-sm text-gray-400">Empanadillas japonesas al vapor rellenas de cochinita pibil, con salsa de habanero y naranja agria.</p></div></div></div><div class="border-b-2 border-dashed border-yellow-800/50 pb-8"><h3 class="text-2xl font-serif font-bold text-[#d4af37] mb-6">Platos Fuertes</h3><div class="space-y-4"><div><div class="flex justify-between"><h4 class="font-bold text-lg text-white">Ramen de Birria</h4><span class="font-bold text-white">$350 MXN</span></div><p class="text-sm text-gray-400">Caldo de birria estilo Jalisco con fideos ramen, carne de res suave, huevo cocido y cebolla morada.</p></div><div><div class="flex justify-between"><h4 class="font-bold text-lg text-white">Salmón en Mole de Miso</h4><span class="font-bold text-white">$420 MXN</span></div><p class="text-sm text-gray-400">Lomo de salmón sellado a la perfección sobre una cama de arroz al vapor, bañado en un mole de miso blanco y ajonjolí tostado.</p></div></div></div><div><h3 class="text-2xl font-serif font-bold text-[#d4af37] mb-6">Postres</h4><div class="space-y-4"><div><div class="flex justify-between"><h4 class="font-bold text-lg text-white">Churros con Chocolate de Matcha</h4><span class="font-bold text-white">$150 MXN</span></div><p class="text-sm text-gray-400">Churros crujientes espolvoreados con azúcar y canela, acompañados de una salsa de chocolate blanco y té matcha.</p></div></div></div></div></div></section>
+        
+        <section id="galeria" class="page-section py-20 bg-[#1c1c1c] hidden"><div class="container mx-auto px-6"><div class="text-center mb-16"><h2 class="text-3xl md:text-4xl font-serif font-bold text-white">Galería de Experiencias</h2><p class="text-gray-400 mt-2 max-w-2xl mx-auto">Un vistazo a la atmósfera, los detalles y los sabores que hacen de nuestro restaurante un lugar único.</p></div><div class="grid grid-cols-2 md:grid-cols-4 gap-4"><div class="overflow-hidden rounded-lg shadow-lg group col-span-2 row-span-2"><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1470&auto=format&fit=crop" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-300" alt="Interior del restaurante"></div><div class="overflow-hidden rounded-lg shadow-lg group"><img src="https://images.unsplash.com/photo-1552529599-87e33b52a593?q=80&w=1374&auto=format&fit=crop" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-300" alt="Platillo de fusión"></div><div class="overflow-hidden rounded-lg shadow-lg group"><img src="https://images.unsplash.com/photo-1551632436-cbf8dd35adfa?q=80&w=1471&auto=format&fit=crop" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-300" alt="Coctel artesanal"></div><div class="overflow-hidden rounded-lg shadow-lg group"><img src="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?q=80&w=1470&auto=format&fit=crop" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-300" alt="Chef preparando sushi"></div><div class="overflow-hidden rounded-lg shadow-lg group"><img src="https://images.unsplash.com/photo-1592861956120-e524fc739696?q=80&w=1470&auto=format&fit=crop" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-300" alt="Detalle de la decoración del restaurante"></div></div></div></section>
+        
+        <section id="reservas" class="page-section py-20 hidden"><div class="container mx-auto px-6 max-w-4xl"><div class="bg-black/50 p-8 md:p-12 rounded-lg shadow-2xl border border-yellow-800/50"><div class="text-center mb-8"><h2 class="text-3xl md:text-4xl font-serif font-bold text-white">Reserve su Mesa</h2><p class="text-gray-400 mt-2">Asegure su lugar para una experiencia culinaria inolvidable.</p></div><form id="booking-form" class="max-w-xl mx-auto"><div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6"><div class="mb-4 md:mb-0"><label for="booking_name" class="block text-gray-300 font-semibold mb-2">Nombre Completo</label><input type="text" id="booking_name" required class="w-full p-3 rounded bg-gray-800 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-[#d4af37] transition text-white"></div><div><label for="guest_count" class="block text-gray-300 font-semibold mb-2">Número de Personas</label><input type="number" id="guest_count" min="1" max="12" value="2" required class="w-full p-3 rounded bg-gray-800 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-[#d4af37] transition text-white"></div></div><div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6"><div><label for="booking_date" class="block text-gray-300 font-semibold mb-2">Fecha</label><input type="date" id="booking_date" required class="w-full p-3 rounded bg-gray-800 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-[#d4af37] transition text-white"></div><div><label for="booking_time" class="block text-gray-300 font-semibold mb-2">Hora</label><input type="time" id="booking_time" required class="w-full p-3 rounded bg-gray-800 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-[#d4af37] transition text-white"></div></div><div class="mb-6"><label for="booking_phone" class="block text-gray-300 font-semibold mb-2">Teléfono de Contacto</label><input type="tel" id="booking_phone" required class="w-full p-3 rounded bg-gray-800 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-[#d4af37] transition text-white"></div><div class="mt-6 border-t border-gray-700 pt-6"><h4 class="font-bold mb-4 text-center text-white">Confirme su Reserva</h4><div class="flex flex-col sm:flex-row gap-4"><button type="button" id="pay-later-btn" class="w-full bg-gray-600 text-white p-3 rounded-lg font-bold hover:bg-gray-500 transition">Confirmar (Pagar en restaurante)</button><button type="button" id="pay-now-btn" class="w-full bg-[#d4af37] text-black p-3 rounded-lg font-bold hover:bg-[#b8860b] transition">Garantizar con Pago en Línea</button></div></div></form></div></div></section>
+    </main>
+
+    <footer class="bg-black text-white"><div class="container mx-auto px-6 py-12"><div class="grid grid-cols-1 md:grid-cols-4 gap-8"><div><h3 class="text-xl font-serif font-bold mb-4">Sabores <span class="text-[#d4af37]">del Alma</span></h3><p class="text-gray-400 text-sm">Fusión México-Oriental.</p></div><div><h3 class="text-lg font-bold mb-4">Navegación</h3><ul class="space-y-2 text-sm"><li><a href="#inicio" class="nav-trigger cursor-pointer text-gray-400 hover:text-white">Inicio</a></li><li><a href="#menu" class="nav-trigger cursor-pointer text-gray-400 hover:text-white">Menú</a></li><li><a href="#galeria" class="nav-trigger cursor-pointer text-gray-400 hover:text-white">Galería</a></li><li><a href="#reservas" class="nav-trigger cursor-pointer text-gray-400 hover:text-white">Reservas</a></li></ul></div><div><h3 class="text-lg font-bold mb-4">Contacto</h3><ul class="space-y-2 text-sm text-gray-400"><li><a href="mailto:contacto@sebastianvernis.com" class="hover:text-white">contacto@sebastianvernis.com</a></li><li><a href="tel:+5213312345678" class="hover:text-white">52-1-33-12345678</a></li><li><span>Av. Canal Nacional 1996, CDMX</span></li></ul></div><div><h3 class="text-lg font-bold mb-4">Síguenos</h3><div class="flex space-x-4"><a href="#" class="text-gray-400 hover:text-[#d4af37] transition-colors"><i data-feather="instagram"></i></a><a href="#" class="text-gray-400 hover:text-[#d4af37] transition-colors"><i data-feather="facebook"></i></a></div></div></div><div class="mt-10 border-t border-gray-700 pt-8 text-center text-gray-500 text-sm"><p>&copy; 2025 Sabores del Alma. Creado por Sebastián Vernis. Todos los derechos reservados.</p></div></div></footer>
+
+    <!-- Modals -->
+    <div id="payment-modal" class="modal fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center p-4 z-50 hidden opacity-0 visibility-hidden"><div class="modal-content bg-gray-900 border border-yellow-800/50 w-full max-w-md mx-auto rounded-lg shadow-2xl p-8 transform scale-95"><div class="flex justify-between items-center mb-6"><h3 class="text-2xl font-serif font-bold text-white">Garantizar Reserva</h3><button class="close-modal-btn text-gray-400 hover:text-white text-3xl">&times;</button></div><form id="payment-form"><p class="text-center text-gray-300 mb-4">Se realizará un cargo de <span class="font-bold text-white">$200.00 MXN</span> para garantizar su mesa.</p><div class="mb-4"><label for="card_number" class="block text-gray-300 font-semibold mb-2">Número de Tarjeta</label><input type="text" id="card_number" placeholder="**** **** **** ****" required class="w-full p-3 rounded bg-gray-800 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-[#d4af37] transition text-white"></div><div class="grid grid-cols-2 gap-4"><div class="mb-4"><label for="card_expiry" class="block text-gray-300 font-semibold mb-2">Expiración</label><input type="text" id="card_expiry" placeholder="MM/AA" required class="w-full p-3 rounded bg-gray-800 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-[#d4af37] transition text-white"></div><div class="mb-4"><label for="card_cvc" class="block text-gray-300 font-semibold mb-2">CVC</label><input type="text" id="card_cvc" placeholder="***" required class="w-full p-3 rounded bg-gray-800 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-[#d4af37] transition text-white"></div></div><button type="submit" class="w-full mt-4 bg-[#d4af37] text-black font-bold py-3 rounded-lg hover:bg-[#b8860b] transition">Pagar y Confirmar</button></form></div></div>
+    <div id="confirmation-modal" class="modal fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center p-4 z-50 hidden opacity-0 visibility-hidden"><div class="modal-content bg-gray-900 border border-yellow-800/50 text-white w-full max-w-md mx-auto rounded-lg shadow-2xl p-8 text-center transform scale-95"><div id="confirmation-icon" class="flex justify-center mb-4"></div><h3 id="confirmation-title" class="text-2xl font-serif font-bold mb-4 text-[#d4af37]"></h3><p id="confirmation-message" class="text-gray-300 mb-6"></p><button class="close-modal-btn w-full bg-gray-700 text-white p-3 rounded-lg font-bold hover:bg-gray-600 transition">Cerrar</button></div></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            feather.replace();
+            
+            const navTriggers = document.querySelectorAll('.nav-trigger');
+            const sections = document.querySelectorAll('.page-section');
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const modals = document.querySelectorAll('.modal');
+            const paymentModal = document.getElementById('payment-modal');
+            const confirmationModal = document.getElementById('confirmation-modal');
+            
+            function showSection(targetId) { sections.forEach(s => s.classList.add('hidden')); const el = document.querySelector(targetId); if(el) el.classList.remove('hidden'); updateActiveLinks(targetId); }
+            function updateActiveLinks(targetId) { document.querySelectorAll('.nav-link, .nav-button, .nav-link-mobile').forEach(l => { l.classList.remove('active'); if(l.getAttribute('href') === targetId) l.classList.add('active'); }); }
+            navTriggers.forEach(t => t.addEventListener('click', e => { e.preventDefault(); const id = e.currentTarget.getAttribute('href'); showSection(id); window.scrollTo(0,0); if(!mobileMenu.classList.contains('hidden')) mobileMenu.classList.add('hidden'); }));
+            mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+
+            function openModal(modal) { modal.classList.remove('hidden'); setTimeout(() => modal.classList.remove('opacity-0', 'visibility-hidden'), 10); }
+            function closeModal(modal) { modal.classList.add('opacity-0', 'visibility-hidden'); setTimeout(() => modal.classList.add('hidden'), 300); }
+            modals.forEach(m => m.addEventListener('click', e => { if (e.target.classList.contains('modal') || e.target.classList.contains('close-modal-btn')) closeModal(m); }));
+
+            function showConfirmation(type) {
+                const icon = confirmationModal.querySelector('#confirmation-icon');
+                const title = confirmationModal.querySelector('#confirmation-title');
+                const msg = confirmationModal.querySelector('#confirmation-message');
+                icon.innerHTML = `<div class="bg-green-900/50 text-green-400 rounded-full p-4"><i data-feather="check-circle" class="w-12 h-12"></i></div>`;
+                if (type === 'paid') { title.textContent = 'Reserva Garantizada'; msg.textContent = 'Tu pago ha sido procesado y tu mesa está confirmada. ¡Te esperamos!';
+                } else { title.textContent = 'Reserva Confirmada'; msg.textContent = 'Tu mesa ha sido agendada. El pago se realizará en el restaurante.'; }
+                feather.replace();
+                openModal(confirmationModal);
+            }
+
+            document.getElementById('pay-later-btn')?.addEventListener('click', () => { showConfirmation('later'); document.getElementById('booking-form').reset(); });
+            document.getElementById('pay-now-btn')?.addEventListener('click', () => { openModal(paymentModal); });
+            document.getElementById('payment-form')?.addEventListener('submit', e => { e.preventDefault(); closeModal(paymentModal); showConfirmation('paid'); document.getElementById('booking-form').reset(); });
+            
+            const datePicker = document.getElementById('booking_date');
+            if(datePicker) { datePicker.min = new Date().toISOString().split("T")[0]; }
+
+            showSection('#inicio');
+        });
+    </script>
+</body>
+</html>
+

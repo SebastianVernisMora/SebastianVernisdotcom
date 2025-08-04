@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soluciones Expertas - Asesoría Legal Confiable</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Feather Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f4f5f7; }
+        .nav-link.active { color: #1d4ed8; font-weight: 600; }
+        .nav-button.active { background-color: #1e3a8a; box-shadow: 0 0 0 3px #93c5fd; }
+        .nav-link-mobile.active { background-color: #eff6ff; color: #1d4ed8; font-weight: 600; }
+        .page-section { animation: fadeIn 0.6s ease-in-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .hero-bg-legal {
+            background-color: #111827;
+            background-image: linear-gradient(rgba(17, 24, 39, 0.8), rgba(17, 24, 39, 0.8)), url('https://images.unsplash.com/photo-1589216532372-1c2a36790049?q=80&w=1470&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+        }
+        .modal { transition: opacity 0.3s ease, visibility 0.3s ease; }
+        .modal-content { transition: transform 0.3s ease; }
+        .modal.hidden { pointer-events: none; }
+        .modal.hidden .modal-content { transform: scale(0.95); }
+        .search-results-container { max-height: 60vh; }
+        .search-results-container::-webkit-scrollbar { width: 8px; }
+        .search-results-container::-webkit-scrollbar-track { background: #e5e7eb; }
+        .search-results-container::-webkit-scrollbar-thumb { background-color: #9ca3af; border-radius: 20px; border: 3px solid #e5e7eb; }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <!-- Header -->
+    <header class="bg-white/95 backdrop-blur-md shadow-sm sticky top-0 z-40">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#inicio" class="nav-trigger cursor-pointer text-xl sm:text-2xl font-bold text-gray-800 flex items-center"><i data-feather="briefcase" class="text-blue-700 mr-2"></i> Soluciones <span class="text-blue-700 ml-1">Expertas</span></a>
+            <div id="desktop-menu" class="hidden md:flex space-x-8 items-center font-sans">
+                <a href="#inicio" class="nav-trigger nav-link cursor-pointer text-gray-600 hover:text-blue-700">Inicio</a>
+                <a href="#servicios" class="nav-trigger nav-link cursor-pointer text-gray-600 hover:text-blue-700">Servicios</a>
+                <a href="#constitucion" class="nav-trigger nav-link cursor-pointer text-gray-600 hover:text-blue-700">Constitución</a>
+                <a href="#quienes-somos" class="nav-trigger nav-link cursor-pointer text-gray-600 hover:text-blue-700">Quiénes Somos</a>
+                <a href="#blog" class="nav-trigger nav-link cursor-pointer text-gray-600 hover:text-blue-700">Blog</a>
+                <a href="#contacto" class="nav-trigger nav-button cursor-pointer bg-blue-700 text-white px-5 py-2 rounded-lg font-semibold hover:bg-blue-800">Contacto</a>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden text-gray-700 focus:outline-none"><i data-feather="menu"></i></button>
+        </nav>
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 border-t"><a href="#inicio" class="nav-trigger nav-link-mobile block py-2 px-3 rounded-md text-gray-600 hover:bg-gray-100 cursor-pointer">Inicio</a><a href="#servicios" class="nav-trigger nav-link-mobile block py-2 px-3 rounded-md text-gray-600 hover:bg-gray-100 cursor-pointer">Servicios</a><a href="#constitucion" class="nav-trigger nav-link-mobile block py-2 px-3 rounded-md text-gray-600 hover:bg-gray-100 cursor-pointer">Constitución</a><a href="#quienes-somos" class="nav-trigger nav-link-mobile block py-2 px-3 rounded-md text-gray-600 hover:bg-gray-100 cursor-pointer">Quiénes Somos</a><a href="#blog" class="nav-trigger nav-link-mobile block py-2 px-3 rounded-md text-gray-600 hover:bg-gray-100 cursor-pointer">Blog</a><a href="#contacto" class="nav-trigger nav-link-mobile block mt-2 bg-blue-700 text-white text-center px-4 py-2 rounded-lg hover:bg-blue-800 cursor-pointer">Contacto</a></div>
+    </header>
+
+    <main>
+        <!-- Sections -->
+        <section id="inicio" class="page-section"><div class="hero-bg-legal text-white"><div class="container mx-auto px-6 text-center py-24 md:py-40"><h1 class="text-4xl md:text-5xl font-extrabold leading-tight mb-4">Su Socio Confiable en Asuntos Legales</h1><p class="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-8">Brindamos certeza y seguridad jurídica a través de un servicio profesional, ético y personalizado. Su tranquilidad es nuestro compromiso.</p><a href="#servicios" class="nav-trigger cursor-pointer bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold text-lg hover:bg-blue-700 transition duration-300">Conocer Servicios</a></div></div>
+        <div class="py-16 md:py-20 bg-white"><div class="container mx-auto px-6"><div class="text-center mb-12 md:mb-16"><h2 class="text-3xl font-bold">Por Qué Elegirnos</h2><p class="text-gray-600 mt-2 max-w-2xl mx-auto">Nuestra firma se fundamenta en pilares que garantizan resultados y la máxima satisfacción del cliente.</p></div><div class="grid grid-cols-1 md:grid-cols-3 gap-10 text-center"><div class="p-6"> <div class="flex justify-center mb-4"><div class="bg-blue-100 text-blue-700 rounded-full p-4"><i data-feather="award" class="w-8 h-8"></i></div></div><h4 class="text-xl font-bold mb-2">Experiencia Comprobada</h4><p class="text-gray-600">Años de práctica y casos de éxito respaldan nuestra capacidad para ofrecerle la mejor estrategia legal.</p></div><div class="p-6"><div class="flex justify-center mb-4"><div class="bg-blue-100 text-blue-700 rounded-full p-4"><i data-feather="users" class="w-8 h-8"></i></div></div><h4 class="text-xl font-bold mb-2">Trato Personalizado</h4><p class="text-gray-600">Cada cliente es único. Escuchamos atentamente su caso para ofrecer soluciones a la medida de sus necesidades.</p></div><div class="p-6"><div class="flex justify-center mb-4"><div class="bg-blue-100 text-blue-700 rounded-full p-4"><i data-feather="target" class="w-8 h-8"></i></div></div><h4 class="text-xl font-bold mb-2">Enfoque en Resultados</h4><p class="text-gray-600">Nos enfocamos en alcanzar sus objetivos de la manera más eficiente y favorable posible.</p></div></div></div></div>
+        </section>
+        
+        <section id="servicios" class="page-section py-16 md:py-20 hidden"><div class="container mx-auto px-6"><div class="text-center mb-12 md:mb-16"><h2 class="text-3xl md:text-4xl font-bold">Nuestros Servicios Legales</h2><p class="text-gray-600 mt-2 max-w-2xl mx-auto">Ofrecemos un portafolio completo de servicios para individuos y empresas, con modalidades flexibles que se adaptan a sus necesidades.</p></div><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12"><div class="bg-white p-8 rounded-lg border shadow-sm hover:shadow-xl transition-shadow flex flex-col"><div class="flex items-center mb-4"><i data-feather="message-circle" class="w-8 h-8 text-green-600 mr-4"></i><h3 class="text-xl font-bold">Asesoría por Chat</h3></div><p class="text-gray-600 flex-grow">Resuelva dudas puntuales de forma rápida y confidencial con uno de nuestros abogados en línea.</p><div class="mt-4"><p class="text-2xl font-bold text-gray-800 mb-4">$800 MXN <span class="text-sm font-normal text-gray-500">/ sesión 30 min</span></p><button class="booking-btn w-full bg-green-600 text-white font-bold py-2 rounded-lg hover:bg-green-700 transition-colors" data-service="Asesoría por Chat" data-price="$800 MXN">Agendar Chat</button></div></div><div class="bg-white p-8 rounded-lg border shadow-sm hover:shadow-xl transition-shadow flex flex-col"><div class="flex items-center mb-4"><i data-feather="phone" class="w-8 h-8 text-green-600 mr-4"></i><h3 class="text-xl font-bold">Asesoría por Teléfono</h3></div><p class="text-gray-600 flex-grow">Converse directamente con un especialista para tratar su caso con la atención que merece.</p><div class="mt-4"><p class="text-2xl font-bold text-gray-800 mb-4">$1,200 MXN <span class="text-sm font-normal text-gray-500">/ sesión 45 min</span></p><button class="booking-btn w-full bg-green-600 text-white font-bold py-2 rounded-lg hover:bg-green-700 transition-colors" data-service="Asesoría por Teléfono" data-price="$1,200 MXN">Agendar Llamada</button></div></div></div><div class="pt-12 border-t"><h3 class="text-2xl font-bold text-center mb-10">Consultas por Área de Práctica</h3><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"><div class="bg-white p-6 rounded-lg border shadow-sm flex flex-col"><h4 class="text-lg font-bold mb-2">Derecho Corporativo</h4><p class="text-gray-600 text-sm flex-grow">Constitución, fusiones, gobierno corporativo.</p><div class="mt-4"><p class="text-xl font-bold text-gray-800">Desde $3,500 MXN</p><button class="booking-btn w-full mt-2 bg-blue-700 text-white font-semibold text-sm py-2 rounded-lg hover:bg-blue-800" data-service="Consulta Corporativa" data-price="Desde $3,500 MXN">Agendar</button></div></div><div class="bg-white p-6 rounded-lg border shadow-sm flex flex-col"><h4 class="text-lg font-bold mb-2">Propiedad Intelectual</h4><p class="text-gray-600 text-sm flex-grow">Registro de marcas, patentes y derechos de autor.</p><div class="mt-4"><p class="text-xl font-bold text-gray-800">Desde $3,000 MXN</p><button class="booking-btn w-full mt-2 bg-blue-700 text-white font-semibold text-sm py-2 rounded-lg hover:bg-blue-800" data-service="Consulta Prop. Intelectual" data-price="Desde $3,000 MXN">Agendar</button></div></div><div class="bg-white p-6 rounded-lg border shadow-sm flex flex-col"><h4 class="text-lg font-bold mb-2">Litigio y Arbitraje</h4><p class="text-gray-600 text-sm flex-grow">Disputas civiles, mercantiles y administrativas.</p><div class="mt-4"><p class="text-xl font-bold text-gray-800">Desde $5,000 MXN</p><button class="booking-btn w-full mt-2 bg-blue-700 text-white font-semibold text-sm py-2 rounded-lg hover:bg-blue-800" data-service="Consulta de Litigio" data-price="Desde $5,000 MXN">Agendar</button></div></div></div></div></div></section>
+        
+        <section id="constitucion" class="page-section py-16 md:py-20 hidden"><div class="container mx-auto px-6"><div class="text-center mb-12"><h2 class="text-3xl md:text-4xl font-bold">Constitución Interactiva</h2><p class="text-gray-600 mt-2 max-w-2xl mx-auto">Explore la Carta Magna. Busque por palabra, frase, artículo o situación.</p></div><div class="max-w-4xl mx-auto"><div class="relative"><input type="text" id="search-constitution" placeholder="Ej: 'Artículo 27', 'libertad de expresión', 'divorcio'..." class="w-full p-4 pr-12 text-lg border-2 border-gray-300 rounded-full focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"><i data-feather="search" class="absolute right-5 top-1/2 -translate-y-1/2 text-gray-400"></i></div><div id="search-results-container" class="mt-6 bg-white p-4 sm:p-6 rounded-lg shadow-md border overflow-y-auto search-results-container"></div></div></div></section>
+        
+        <section id="quienes-somos" class="page-section py-16 md:py-20 bg-white hidden"><div class="container mx-auto px-6"><div class="text-center mb-12 md:mb-16"><h2 class="text-3xl md:text-4xl font-bold">Conozca Nuestra Firma</h2><p class="text-gray-600 mt-2 max-w-2xl mx-auto">La excelencia de nuestro servicio reside en la calidad humana y profesional de nuestro equipo.</p></div><div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16"><img src="https://images.unsplash.com/photo-1556156155-ad7f547fc138?q=80&w=1470&auto=format&fit=crop" class="rounded-lg shadow-xl w-full object-cover" alt="Interior de una oficina legal moderna y elegante"><div class="space-y-4"><h3 class="text-2xl font-bold">Nuestra Filosofía</h3><p class="text-gray-600">En Soluciones Expertas, creemos en una abogacía preventiva, estratégica y centrada en el cliente. Nuestra misión es ofrecer más que solo respuestas legales; brindamos tranquilidad, confianza y un camino claro hacia la resolución de sus asuntos. Nos regimos por la ética, la transparencia y un compromiso inquebrantable con la defensa de sus intereses.</p></div></div><div class="pt-16 border-t"><h3 class="text-3xl font-bold text-center mb-12">Nuestro Equipo</h3><div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"><div class="text-center"><img src="https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=1470&auto=format&fit=crop" class="w-40 h-40 rounded-full mx-auto mb-4 shadow-lg object-cover" alt="Retrato de un abogado"><h4 class="font-bold text-lg">Juan Pérez</h4><p class="text-blue-700 font-semibold">Socio Fundador</p><button class="lawyer-btn text-sm text-gray-600 hover:text-blue-700 font-semibold mt-2" data-lawyer="juan-perez">Ver Perfil Completo</button></div><div class="text-center"><img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1376&auto=format&fit=crop" class="w-40 h-40 rounded-full mx-auto mb-4 shadow-lg object-cover" alt="Retrato de una abogada"><h4 class="font-bold text-lg">Laura García</h4><p class="text-blue-700 font-semibold">Socia - Derecho Corporativo</p><button class="lawyer-btn text-sm text-gray-600 hover:text-blue-700 font-semibold mt-2" data-lawyer="laura-garcia">Ver Perfil Completo</button></div><div class="text-center"><img src="https://images.unsplash.com/photo-1590086782792-42dd2350150d?q=80&w=1374&auto=format&fit=crop" class="w-40 h-40 rounded-full mx-auto mb-4 shadow-lg object-cover" alt="Retrato de un abogado senior"><h4 class="font-bold text-lg">Carlos Mendoza</h4><p class="text-blue-700 font-semibold">Abogado Senior - Litigio</p><button class="lawyer-btn text-sm text-gray-600 hover:text-blue-700 font-semibold mt-2" data-lawyer="carlos-mendoza">Ver Perfil Completo</button></div></div></div></div></section>
+        
+        <section id="blog" class="page-section py-16 md:py-20 hidden"><div class="container mx-auto px-6"><div class="text-center mb-12 md:mb-16"><h2 class="text-3xl md:text-4xl font-bold">Blog Legal</h2><p class="text-gray-600 mt-2 max-w-2xl mx-auto">Información valiosa y actualizada sobre el mundo legal para mantenerlo informado.</p></div><div class="grid grid-cols-1 md:grid-cols-3 gap-8"><div class="bg-white rounded-lg shadow-md overflow-hidden group"><a href="#" class="block"><div class="overflow-hidden"><img src="https://images.unsplash.com/photo-1590004953392-5aba7e72269a?q=80&w=1374&auto=format&fit=crop" onerror="this.onerror=null;this.src='https://placehold.co/600x400/BFDBFE/1E3A8A?text=Confianza';" alt="Apretón de manos cerrando un trato" class="w-full h-56 object-cover group-hover:scale-105 transition-transform"></div><div class="p-6"><h3 class="text-lg font-bold mb-2">Claves para elegir un servicio legal confiable</h3><p class="text-gray-600 text-sm">En un mundo complejo, contar con un servicio legal de confianza es crucial. Aquí te decimos cómo elegir el mejor...</p></div></a></div><div class="bg-white rounded-lg shadow-md overflow-hidden group"><a href="#" class="block"><div class="overflow-hidden"><img src="https://images.unsplash.com/photo-1589829545856-d10d3e781503?q=80&w=1470&auto=format&fit=crop" onerror="this.onerror=null;this.src='https://placehold.co/600x400/93C5FD/1D4ED8?text=Asesoría';" alt="Abogado asesorando a un cliente" class="w-full h-56 object-cover group-hover:scale-105 transition-transform"></div><div class="p-6"><h3 class="text-lg font-bold mb-2">Beneficios de contar con asesoría legal especializada</h3><p class="text-gray-600 text-sm">La asesoría especializada puede marcar la diferencia entre el éxito y el fracaso en cualquier situación legal. Conoce sus beneficios...</p></div></a></div><div class="bg-white rounded-lg shadow-md overflow-hidden group"><a href="#" class="block"><div class="overflow-hidden"><img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=1632&auto=format&fit=crop" onerror="this.onerror=null;this.src='https://placehold.co/600x400/60A5FA/1E40AF?text=Soluciones';" alt="Equipo de profesionales revisando documentos" class="w-full h-56 object-cover group-hover:scale-105 transition-transform"></div><div class="p-6"><h3 class="text-lg font-bold mb-2">Cómo encontrar soluciones expertas en servicios legales</h3><p class="text-gray-600 text-sm">Encontrar la solución correcta puede ser abrumador. Te damos una guía para navegar en un mercado saturado de opciones...</p></div></a></div></div></div></section>
+        
+        <section id="contacto" class="page-section py-16 md:py-20 hidden"><div class="container mx-auto px-6"><div class="text-center mb-12 md:mb-16"><h2 class="text-3xl md:text-4xl font-bold">Póngase en Contacto</h2><p class="text-gray-600 mt-2 max-w-2xl mx-auto">Estamos listos para escuchar su caso. Envíenos un mensaje y nuestro equipo se comunicará con usted para agendar una consulta.</p></div><div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto"><div class="bg-white p-8 rounded-lg border shadow-sm"><form id="contact-form"><div class="mb-5"><label for="name_contact" class="block text-gray-700 mb-1 font-bold">Nombre</label><input type="text" id="name_contact" name="name" required class="w-full p-3 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"></div><div class="mb-5"><label for="email_contact" class="block text-gray-700 mb-1 font-bold">Correo Electrónico</label><input type="email" id="email_contact" name="email" required class="w-full p-3 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"></div><div class="mb-5"><label for="message_contact" class="block text-gray-700 mb-1 font-bold">Asunto</label><textarea id="message_contact" name="message" rows="5" required class="w-full p-3 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"></textarea></div><button type="submit" class="w-full bg-blue-600 text-white p-3 rounded-lg font-bold hover:bg-blue-700 transition duration-300">Enviar Mensaje</button></form></div><div class="space-y-6 pt-4"><div class="flex items-start"><i data-feather="map-pin" class="w-6 h-6 mr-4 mt-1 text-blue-600 flex-shrink-0"></i><div><h4 class="font-bold">Nuestra Oficina</h4><p>Av. Cobá 202, Cancún, Q.R., México</p></div></div><div class="flex items-start"><i data-feather="mail" class="w-6 h-6 mr-4 mt-1 text-blue-600 flex-shrink-0"></i><div><h4 class="font-bold">Email</h4><a href="mailto:contacto@sebastianvernis.com" class="hover:text-blue-600">contacto@sebastianvernis.com</a></div></div><div class="flex items-start"><i data-feather="phone" class="w-6 h-6 mr-4 mt-1 text-blue-600 flex-shrink-0"></i><div><h4 class="font-bold">Teléfono</h4><a href="tel:+5213312345678" class="hover:text-blue-600">52-1-33-12345678</a></div></div></div></div></div></section>
+    </main>
+
+    <footer class="bg-gray-800 text-white"><div class="container mx-auto px-6 py-12"><div class="grid grid-cols-1 md:grid-cols-4 gap-8"><div><h3 class="text-lg font-bold mb-4">Soluciones Expertas</h3><p class="text-gray-400 text-sm">Certeza y seguridad jurídica a su alcance.</p></div><div><h3 class="text-lg font-semibold mb-4">Navegación</h3><ul class="space-y-2 text-sm"><li><a href="#inicio" class="nav-trigger cursor-pointer text-gray-400 hover:text-white">Inicio</a></li><li><a href="#servicios" class="nav-trigger cursor-pointer text-gray-400 hover:text-white">Servicios</a></li><li><a href="#quienes-somos" class="nav-trigger cursor-pointer text-gray-400 hover:text-white">Quiénes Somos</a></li><li><a href="#blog" class="nav-trigger cursor-pointer text-gray-400 hover:text-white">Blog</a></li></ul></div><div><h3 class="text-lg font-semibold mb-4">Contacto</h3><ul class="space-y-2 text-sm text-gray-400"><li><a href="mailto:contacto@sebastianvernis.com" class="hover:text-white">contacto@sebastianvernis.com</a></li><li><a href="tel:+5213312345678" class="hover:text-white">52-1-33-12345678</a></li><li><span>Av. Cobá 202, Cancún, Q.R.</span></li></ul></div><div><h3 class="text-lg font-semibold mb-4">Síganos</h3><div class="flex space-x-4"><a href="#" class="text-gray-400 hover:text-blue-500 transition-colors"><i data-feather="linkedin"></i></a><a href="#" class="text-gray-400 hover:text-blue-500 transition-colors"><i data-feather="twitter"></i></a></div></div></div><div class="mt-10 border-t border-gray-700 pt-8 text-center text-gray-500 text-sm"><p>&copy; 2025 Soluciones Expertas. Creado por Sebastián Vernis. Todos los derechos reservados.</p></div></div></footer>
+
+    <!-- Modals -->
+    <div id="booking-modal" class="modal fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center p-4 z-50 hidden opacity-0 visibility-hidden"><div class="modal-content bg-white w-full max-w-md mx-auto rounded-lg shadow-2xl p-8 transform scale-95"><div class="flex justify-between items-center mb-6"><h3 class="text-2xl font-bold">Reservar Consulta</h3><button class="close-modal-btn text-gray-500 hover:text-gray-800 text-3xl">&times;</button></div><form id="booking-form"><div class="mb-4"><label class="block text-gray-700 font-bold mb-2">Servicio:</label><p id="service-name" class="text-lg text-blue-700 font-semibold"></p><p id="service-price" class="text-sm text-gray-500"></p></div><div class="mb-4"><label for="booking_name" class="block text-gray-700 font-bold mb-2">Nombre Completo:</label><input type="text" id="booking_name" required class="w-full p-3 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"></div><div class="mb-4"><label for="booking_email" class="block text-gray-700 font-bold mb-2">Correo Electrónico:</label><input type="email" id="booking_email" required class="w-full p-3 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"></div><div class="mb-6"><label for="booking_date" class="block text-gray-700 font-bold mb-2">Fecha Preferida:</label><input type="date" id="booking_date" required class="w-full p-3 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"></div><button type="submit" class="w-full bg-blue-700 text-white p-3 rounded-lg font-bold text-lg hover:bg-blue-800 transition">Confirmar Reserva</button></form></div></div>
+    <div id="lawyer-modal" class="modal fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center p-4 z-50 hidden opacity-0 visibility-hidden overflow-y-auto"><div class="modal-content bg-white w-full max-w-3xl mx-auto rounded-lg shadow-2xl transform scale-95 my-8"><div class="p-4 flex justify-between items-center border-b"><h3 class="text-2xl font-bold">Perfil del Abogado</h3><button class="close-modal-btn text-gray-500 hover:text-gray-800 text-4xl">&times;</button></div><div id="lawyer-profile-content" class="p-6 md:p-8"></div></div></div>
+    <div id="confirmation-modal" class="modal fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center p-4 z-50 hidden opacity-0 visibility-hidden"><div class="modal-content bg-white w-full max-w-md mx-auto rounded-lg shadow-2xl p-8 text-center transform scale-95"><div id="confirmation-icon" class="flex justify-center mb-4"></div><h3 id="confirmation-title" class="text-2xl font-bold mb-4"></h3><p id="confirmation-message" class="text-gray-600 mb-6"></p><button class="close-modal-btn w-full bg-gray-700 text-white p-3 rounded-lg font-bold hover:bg-gray-800 transition">Cerrar</button></div></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            feather.replace();
+            
+            const constitutionData = [ { id: 1, title: 'Artículo 1', content: 'En los Estados Unidos Mexicanos todas las personas gozarán de los derechos humanos reconocidos en esta Constitución...', tags: ['derechos humanos', 'igualdad', 'discriminación', 'derechos fundamentales'] }, { id: 3, title: 'Artículo 3', content: 'Toda persona tiene derecho a la educación...', tags: ['educación', 'derecho a la educación', 'escuelas', 'laica', 'gratuita'] }, { id: 4, title: 'Artículo 4', content: 'La mujer y el hombre son iguales ante la ley. Esta protegerá la organización y el desarrollo de la familia...', tags: ['familia', 'igualdad de genero', 'matrimonio', 'divorcio', 'salud', 'vivienda'] }, { id: 14, title: 'Artículo 14', content: 'A ninguna ley se dará efecto retroactivo en perjuicio de persona alguna...', tags: ['debido proceso', 'juicio', 'retroactividad', 'derecho penal', 'procedimiento legal'] }, { id: 27, title: 'Artículo 27', content: 'La propiedad de las tierras y aguas comprendidas dentro de los límites del territorio nacional, corresponde originariamente a la Nación...', tags: ['propiedad', 'tierra', 'recursos naturales', 'expropiación', 'derecho agrario', 'bienes raices'] }, { id: 123, title: 'Artículo 123', content: 'Toda persona tiene derecho al trabajo digno y socialmente útil...', tags: ['trabajo', 'derecho laboral', 'despido', 'salario', 'jornada laboral', 'sindicatos'] } ];
+            const lawyerData = { 'juan-perez': { name: 'Juan Pérez', title: 'Socio Fundador', image: 'https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=1470&auto=format&fit=crop', bio: 'Con más de 20 años de experiencia, Juan es un estratega legal reconocido por su enfoque en litigios complejos y arbitraje internacional...', expertise: ['Litigio Estratégico', 'Arbitraje Comercial', 'Derecho Corporativo'] }, 'laura-garcia': { name: 'Laura García', title: 'Socia - Derecho Corporativo', image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1376&auto=format&fit=crop', bio: 'Laura es especialista en derecho corporativo y fusiones y adquisiciones...', expertise: ['Fusiones y Adquisiciones', 'Gobierno Corporativo', 'Contratos Comerciales'] }, 'carlos-mendoza': { name: 'Carlos Mendoza', title: 'Abogado Senior - Litigio', image: 'https://images.unsplash.com/photo-1590086782792-42dd2350150d?q=80&w=1374&auto=format&fit=crop', bio: 'Carlos es un litigante tenaz y meticuloso, con una destacada trayectoria en la resolución de disputas civiles y mercantiles...', expertise: ['Litigio Civil y Mercantil', 'Juicios de Amparo', 'Derecho Administrativo'] } };
+
+            const mainContainer = document.querySelector('main');
+            const navTriggers = document.querySelectorAll('.nav-trigger');
+            const sections = document.querySelectorAll('.page-section');
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const modals = document.querySelectorAll('.modal');
+            const bookingModal = document.getElementById('booking-modal');
+            const lawyerModal = document.getElementById('lawyer-modal');
+            const confirmationModal = document.getElementById('confirmation-modal');
+            const bookingForm = document.getElementById('booking-form');
+            const contactForm = document.getElementById('contact-form');
+            const searchInput = document.getElementById('search-constitution');
+            const searchResultsContainer = document.getElementById('search-results-container');
+
+            function showSection(targetId) { sections.forEach(s => s.classList.add('hidden')); const el = document.querySelector(targetId); if(el) el.classList.remove('hidden'); updateActiveLinks(targetId); }
+            function updateActiveLinks(targetId) { document.querySelectorAll('.nav-link, .nav-button, .nav-link-mobile').forEach(l => { l.classList.remove('active'); if(l.getAttribute('href') === targetId) l.classList.add('active'); }); }
+            navTriggers.forEach(t => t.addEventListener('click', e => { e.preventDefault(); const id = e.currentTarget.getAttribute('href'); showSection(id); window.scrollTo(0,0); if(!mobileMenu.classList.contains('hidden')) mobileMenu.classList.add('hidden'); }));
+            mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+
+            function openModal(modal) { modal.classList.remove('hidden'); setTimeout(() => modal.classList.remove('opacity-0', 'visibility-hidden'), 10); }
+            function closeModal(modal) { modal.classList.add('opacity-0', 'visibility-hidden'); setTimeout(() => modal.classList.add('hidden'), 300); }
+            modals.forEach(m => m.addEventListener('click', e => { if (e.target.classList.contains('modal') || e.target.classList.contains('close-modal-btn')) closeModal(m); }));
+
+            function showConfirmation(type) {
+                const icon = confirmationModal.querySelector('#confirmation-icon');
+                const title = confirmationModal.querySelector('#confirmation-title');
+                const msg = confirmationModal.querySelector('#confirmation-message');
+                if (type === 'booking') {
+                    icon.innerHTML = `<div class="bg-blue-100 text-blue-700 rounded-full p-4"><i data-feather="check-circle" class="w-12 h-12"></i></div>`;
+                    title.textContent = 'Reserva Recibida';
+                    msg.textContent = 'Hemos agendado su consulta. Nos pondremos en contacto para confirmar los detalles.';
+                } else {
+                    icon.innerHTML = `<div class="bg-green-100 text-green-700 rounded-full p-4"><i data-feather="send" class="w-12 h-12"></i></div>`;
+                    title.textContent = 'Mensaje Enviado';
+                    msg.textContent = 'Gracias por contactarnos. Le responderemos a la brevedad.';
+                }
+                feather.replace();
+                openModal(confirmationModal);
+            }
+            
+            function renderSearchResults(results) {
+                if (!searchResultsContainer) return;
+                if (results.length === 0) { searchResultsContainer.innerHTML = '<p class="text-gray-500 text-center">No se encontraron resultados.</p>'; return; }
+                searchResultsContainer.innerHTML = results.map(art => `<div class="p-4 border-b border-gray-200 last:border-b-0"><h4 class="font-bold text-lg text-blue-700">${art.title}</h4><p class="text-gray-600 mt-1">${art.content.substring(0, 150)}...</p><div class="mt-2 text-xs text-gray-400">Etiquetas: ${art.tags.join(', ')}</div></div>`).join('');
+            }
+            searchInput?.addEventListener('input', () => { const query = searchInput.value.toLowerCase().trim(); if (query.length < 2) { renderSearchResults(constitutionData); return; } const results = constitutionData.filter(art => { const articleNumberMatch = `artículo ${art.id}` === query || String(art.id) === query; return articleNumberMatch || art.title.toLowerCase().includes(query) || art.content.toLowerCase().includes(query) || art.tags.some(tag => tag.includes(query)); }); renderSearchResults(results); });
+
+            document.addEventListener('click', function(e) {
+                const bookingBtn = e.target.closest('.booking-btn');
+                const lawyerBtn = e.target.closest('.lawyer-btn');
+                
+                if (bookingBtn) {
+                    const service = bookingBtn.dataset.service;
+                    const price = bookingBtn.dataset.price;
+                    bookingModal.querySelector('#service-name').textContent = service;
+                    bookingModal.querySelector('#service-price').textContent = price || '';
+                    bookingModal.querySelector('#booking_date').min = new Date().toISOString().split("T")[0];
+                    closeModal(lawyerModal);
+                    openModal(bookingModal);
+                }
+
+                if(lawyerBtn) {
+                    const lawyerId = lawyerBtn.dataset.lawyer;
+                    const data = lawyerData[lawyerId];
+                    if(data) {
+                        const content = lawyerModal.querySelector('#lawyer-profile-content');
+                        content.innerHTML = `<div class="flex flex-col sm:flex-row gap-8"><div class="text-center flex-shrink-0"><img src="${data.image}" alt="Foto de ${data.name}" class="w-40 h-40 rounded-full mx-auto mb-4 shadow-lg object-cover"><h3 class="text-2xl font-bold">${data.name}</h3><p class="text-blue-700 font-semibold">${data.title}</p></div><div class="flex-grow"><h4 class="font-bold text-lg mb-2 border-b pb-2">Biografía</h4><p class="text-gray-600 mb-6">${data.bio}</p><h4 class="font-bold text-lg mb-2">Áreas de Especialización</h4><div class="flex flex-wrap gap-2 mb-6">${data.expertise.map(exp => `<span class="bg-blue-100 text-blue-800 text-sm font-semibold px-3 py-1 rounded-full">${exp}</span>`).join('')}</div><button class="booking-btn w-full bg-blue-700 text-white font-bold py-3 rounded-lg hover:bg-blue-800" data-service="Consulta con ${data.name}" data-price="">Agendar Cita Directa</button></div></div>`;
+                        feather.replace();
+                        openModal(lawyerModal);
+                    }
+                }
+            });
+
+            bookingForm?.addEventListener('submit', e => { e.preventDefault(); closeModal(bookingModal); showConfirmation('booking'); e.target.reset(); });
+            contactForm?.addEventListener('submit', e => { e.preventDefault(); showConfirmation('contact'); e.target.reset(); });
+            
+            showSection('#inicio');
+            renderSearchResults(constitutionData);
+        });
+    </script>
+</body>
+</html>
+

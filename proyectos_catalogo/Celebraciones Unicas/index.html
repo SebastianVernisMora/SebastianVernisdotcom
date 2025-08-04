@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Celebraciones Únicas - Creamos Momentos Inolvidables</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+    
+    <!-- Feather Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <style>
+        .font-serif { font-family: 'Lora', serif; }
+        .font-sans { font-family: 'Quicksand', sans-serif; }
+        body { font-family: 'Quicksand', sans-serif; background-color: #fffaf0; /* FloralWhite */ }
+        .nav-link.active { color: #ca8a04; /* yellow-600 */ font-weight: 700; border-bottom: 2px solid #ca8a04; }
+        .nav-button.active { background-color: #a16207; /* yellow-700 */ box-shadow: 0 0 0 3px #fde68a; /* yellow-200 */ }
+        .nav-link-mobile.active { background-color: #fefce8; /* yellow-50 */ color: #a16207; font-weight: 700; }
+        .page-section { animation: fadeIn 0.6s ease-in-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .hero-bg-events {
+            background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1511795409834-ef04bbd51622?q=80&w=1470&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+        }
+        .modal { transition: opacity 0.3s ease, visibility 0.3s ease; }
+        .modal-content { transition: transform 0.3s ease; }
+        .modal.hidden { pointer-events: none; }
+        .modal.hidden .modal-content { transform: scale(0.95); }
+    </style>
+</head>
+<body class="text-gray-700">
+
+    <!-- Header -->
+    <header class="bg-white/95 backdrop-blur-md shadow-sm sticky top-0 z-40">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#inicio" class="nav-trigger cursor-pointer text-xl sm:text-2xl font-serif font-bold text-gray-800">Celebraciones <span class="text-yellow-600">Únicas</span></a>
+            <div id="desktop-menu" class="hidden md:flex space-x-8 items-center font-sans">
+                <a href="#inicio" class="nav-trigger nav-link cursor-pointer text-gray-600 hover:text-yellow-600 pb-1">Inicio</a>
+                <a href="#servicios" class="nav-trigger nav-link cursor-pointer text-gray-600 hover:text-yellow-600 pb-1">Servicios</a>
+                <a href="#cotizador" class="nav-trigger nav-link cursor-pointer text-gray-600 hover:text-yellow-600 pb-1">Cotizador</a>
+                <a href="#galeria" class="nav-trigger nav-link cursor-pointer text-gray-600 hover:text-yellow-600 pb-1">Galería</a>
+                <a href="#blog" class="nav-trigger nav-link cursor-pointer text-gray-600 hover:text-yellow-600 pb-1">Blog</a>
+                <a href="#contacto" class="nav-trigger nav-button cursor-pointer bg-yellow-600 text-white px-5 py-2 rounded-full font-semibold hover:bg-yellow-700">Contacto</a>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden text-gray-700 focus:outline-none"><i data-feather="menu"></i></button>
+        </nav>
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 border-t"><a href="#inicio" class="nav-trigger nav-link-mobile block py-2 px-3 rounded-md text-gray-600 hover:bg-gray-100 cursor-pointer">Inicio</a><a href="#servicios" class="nav-trigger nav-link-mobile block py-2 px-3 rounded-md text-gray-600 hover:bg-gray-100 cursor-pointer">Servicios</a><a href="#cotizador" class="nav-trigger nav-link-mobile block py-2 px-3 rounded-md text-gray-600 hover:bg-gray-100 cursor-pointer">Cotizador</a><a href="#galeria" class="nav-trigger nav-link-mobile block py-2 px-3 rounded-md text-gray-600 hover:bg-gray-100 cursor-pointer">Galería</a><a href="#blog" class="nav-trigger nav-link-mobile block py-2 px-3 rounded-md text-gray-600 hover:bg-gray-100 cursor-pointer">Blog</a><a href="#contacto" class="nav-trigger nav-link-mobile block mt-2 bg-yellow-600 text-white text-center px-4 py-2 rounded-lg hover:bg-yellow-700 cursor-pointer">Contacto</a></div>
+    </header>
+
+    <main>
+        <!-- Sections -->
+        <section id="inicio" class="page-section hero-bg-events text-white"><div class="container mx-auto px-6 text-center py-24 md:py-48"><h1 class="text-4xl md:text-6xl font-serif font-bold leading-tight mb-4">Creamos Momentos Inolvidables</h1><p class="text-lg md:text-xl text-gray-200 max-w-3xl mx-auto mb-10 font-sans">Hacemos realidad la celebración de tus sueños. Transforma tu evento en una experiencia memorable con nuestro toque de magia y profesionalismo.</p><a href="#servicios" class="nav-trigger cursor-pointer bg-yellow-600 text-white px-8 py-3 rounded-full font-bold text-lg hover:bg-yellow-700 transition duration-300">Explorar Servicios</a></div></section>
+        
+        <section id="servicios" class="page-section py-16 md:py-20 hidden"><div class="container mx-auto px-6"><div class="text-center mb-12 md:mb-16"><h2 class="text-3xl md:text-4xl font-serif font-bold text-gray-800">Nuestros Servicios de Planificación</h2><p class="text-gray-600 mt-2 max-w-2xl mx-auto">Desde bodas de ensueño hasta eventos corporativos impecables, nos encargamos de cada detalle para que tú solo te preocupes por disfrutar.</p></div><div class="grid grid-cols-1 md:grid-cols-3 gap-8"><div class="bg-white p-8 rounded-lg text-center border shadow-sm hover:shadow-xl transition-shadow"><div class="flex justify-center mb-4"><div class="bg-yellow-100 text-yellow-600 rounded-full p-4"><i data-feather="heart" class="w-10 h-10"></i></div></div><h3 class="text-2xl font-serif font-bold mb-2">Asesoría de Bodas</h3><p class="text-gray-600 mb-4">Planificación completa o parcial para el día más importante de tu vida. Cuidamos cada detalle con amor.</p><p class="text-2xl font-bold text-yellow-700 mb-6">Desde $3,000 MXN</p><button class="booking-btn w-full bg-yellow-600 text-white font-bold py-2 rounded-lg hover:bg-yellow-700" data-service="Asesoría de Bodas">Solicitar Información</button></div><div class="bg-white p-8 rounded-lg text-center border shadow-sm hover:shadow-xl transition-shadow"><div class="flex justify-center mb-4"><div class="bg-yellow-100 text-yellow-600 rounded-full p-4"><i data-feather="briefcase" class="w-10 h-10"></i></div></div><h3 class="text-2xl font-serif font-bold mb-2">Eventos Corporativos</h3><p class="text-gray-600 mb-4">Lanzamientos, conferencias y celebraciones de fin de año con un toque de distinción y profesionalismo.</p><p class="text-2xl font-bold text-yellow-700 mb-6">Desde $4,000 MXN</p><button class="booking-btn w-full bg-yellow-600 text-white font-bold py-2 rounded-lg hover:bg-yellow-700" data-service="Eventos Corporativos">Solicitar Información</button></div><div class="bg-white p-8 rounded-lg text-center border shadow-sm hover:shadow-xl transition-shadow"><div class="flex justify-center mb-4"><div class="bg-yellow-100 text-yellow-600 rounded-full p-4"><i data-feather="sun" class="w-10 h-10"></i></div></div><h3 class="text-2xl font-serif font-bold mb-2">Celebraciones Religiosas</h3><p class="text-gray-600 mb-4">Bautizos, primeras comuniones y otros eventos con la solemnidad y elegancia que merecen.</p><p class="text-2xl font-bold text-yellow-700 mb-6">Desde $2,000 MXN</p><button class="booking-btn w-full bg-yellow-600 text-white font-bold py-2 rounded-lg hover:bg-yellow-700" data-service="Celebraciones Religiosas">Solicitar Información</button></div></div></div></section>
+
+        <section id="cotizador" class="page-section py-16 md:py-20 bg-white hidden"><div class="container mx-auto px-6"><div class="text-center mb-12 md:mb-16"><h2 class="text-3xl md:text-4xl font-serif font-bold text-gray-800">Cotizador de Eventos</h2><p class="text-gray-600 mt-2 max-w-2xl mx-auto">Obtén un presupuesto estimado para tu celebración. Elige uno de nuestros paquetes o personaliza tu evento a medida.</p></div><h3 class="text-2xl font-serif font-bold mb-8 text-center">Paquetes Prediseñados</h3><div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16"><div class="border rounded-lg p-6 text-center bg-gray-50"><h4 class="text-xl font-bold font-serif">Boda Clásica</h4><p class="text-sm text-gray-500 mb-4">Mobiliario, Música, Decoración Floral</p><button class="package-btn w-full bg-gray-600 text-white font-bold py-2 rounded-lg hover:bg-gray-700" data-package="boda">Cotizar este Paquete</button></div><div class="border rounded-lg p-6 text-center bg-gray-50"><h4 class="text-xl font-bold font-serif">Bautizo Encantador</h4><p class="text-sm text-gray-500 mb-4">Mobiliario, Catering Básico, Decoración</p><button class="package-btn w-full bg-gray-600 text-white font-bold py-2 rounded-lg hover:bg-gray-700" data-package="bautizo">Cotizar este Paquete</button></div><div class="border rounded-lg p-6 text-center bg-gray-50"><h4 class="text-xl font-bold font-serif">Evento Corporativo</h4><p class="text-sm text-gray-500 mb-4">Mobiliario, Audio/Video, Coctelería</p><button class="package-btn w-full bg-gray-600 text-white font-bold py-2 rounded-lg hover:bg-gray-700" data-package="corporativo">Cotizar este Paquete</button></div></div><div id="custom-quoter" class="bg-white border rounded-lg shadow-xl p-6 md:p-8 grid grid-cols-1 lg:grid-cols-3 gap-8"><div class="lg:col-span-2"><h3 class="text-2xl font-serif font-bold mb-6">Cotiza a tu Medida</h3><div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6"><div><label for="eventType" class="block font-bold mb-2">1. Tipo de Evento</label><select id="eventType" class="w-full p-3 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-500"><option value="boda">Boda</option><option value="bautizo">Bautizo</option><option value="corporativo">Evento Corporativo</option><option value="otro">Otro</option></select></div><div><label for="guestCount" class="block font-bold mb-2">2. Cantidad de Personas (<span id="guestCountLabel">100</span>)</label><input type="range" id="guestCount" min="20" max="500" value="100" step="10" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"></div></div><div><label class="block font-bold mb-4">3. Servicios Adicionales</label><div id="services-list" class="grid grid-cols-2 md:grid-cols-3 gap-4"></div></div></div><div class="bg-yellow-50 rounded-lg p-6 border-l-4 border-yellow-500 mt-8 lg:mt-0"><h3 class="text-xl font-serif font-bold mb-4">Resumen de Cotización</h3><div id="quote-summary" class="space-y-2 text-gray-600"></div><div class="border-t mt-4 pt-4"><p class="flex justify-between font-bold text-xl"><span>Total Estimado</span><span id="total-price">$0 MXN</span></p></div><button class="booking-btn w-full mt-6 bg-yellow-600 text-white font-bold py-3 rounded-lg hover:bg-yellow-700" data-service="Evento Personalizado">Solicitar Cotización Formal</button></div></div></div></section>
+        
+        <section id="galeria" class="page-section py-16 md:py-20 bg-white hidden"><div class="container mx-auto px-6"><div class="text-center mb-12 md:mb-16"><h2 class="text-3xl md:text-4xl font-serif font-bold text-gray-800">Galería de Momentos</h2><p class="text-gray-600 mt-2 max-w-2xl mx-auto">Una imagen vale más que mil palabras. Inspírate con algunas de nuestras celebraciones pasadas.</p></div><div class="grid grid-cols-2 md:grid-cols-4 gap-4"><div class="overflow-hidden rounded-lg shadow-lg"><img src="https://images.unsplash.com/photo-1523438885209-e88507f1a308?q=80&w=1374&auto=format&fit=crop" class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-300" alt="Mesa de boda elegantemente decorada"></div><div class="overflow-hidden rounded-lg shadow-lg"><img src="https://images.unsplash.com/photo-1542636306-95f705a61e89?q=80&w=1470&auto=format&fit=crop" class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-300" alt="Personas en un evento corporativo"></div><div class="overflow-hidden rounded-lg shadow-lg"><img src="https://images.unsplash.com/photo-1519225421980-715cb02cf5d7?q=80&w=1470&auto=format&fit=crop" class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-300" alt="Detalle de flores en una boda"></div><div class="overflow-hidden rounded-lg shadow-lg"><img src="https://images.unsplash.com/photo-1543157145-f73934757626?q=80&w=1374&auto=format&fit=crop" class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-300" alt="Salón de eventos con luces y gente bailando"></div></div></div></section>
+        
+        <section id="blog" class="page-section py-16 md:py-20 hidden"><div class="container mx-auto px-6"><div class="text-center mb-12 md:mb-16"><h2 class="text-3xl md:text-4xl font-serif font-bold text-gray-800">Nuestro Blog</h2><p class="text-gray-600 mt-2 max-w-2xl mx-auto">Ideas, tendencias y consejos de nuestros expertos para que tu próxima celebración sea perfecta.</p></div><div class="grid grid-cols-1 md:grid-cols-3 gap-8"><div class="bg-white rounded-lg shadow-md overflow-hidden group"><a href="#" class="block"><div class="overflow-hidden"><img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?q=80&w=1470&auto=format&fit=crop" class="w-full h-56 object-cover group-hover:scale-105 transition-transform"></div><div class="p-6"><h3 class="font-serif text-xl font-bold mb-2">Ideas creativas para tu boda soñada</h3><p class="text-gray-600 text-sm">Tu boda soñada está más cerca de lo que imaginas. Te damos algunas ideas para que sea un evento memorable...</p></div></a></div><div class="bg-white rounded-lg shadow-md overflow-hidden group"><a href="#" class="block"><div class="overflow-hidden"><img src="https://images.unsplash.com/photo-1551818255-e6e109758e24?q=80&w=1470&auto=format&fit=crop" class="w-full h-56 object-cover group-hover:scale-105 transition-transform"></div><div class="p-6"><h3 class="font-serif text-xl font-bold mb-2">Inspiración para celebraciones religiosas</h3><p class="text-gray-600 text-sm">Sabemos lo importante que son estos momentos. Descubre cómo darles un toque de elegancia y significado...</p></div></a></div><div class="bg-white rounded-lg shadow-md overflow-hidden group"><a href="#" class="block"><div class="overflow-hidden"><img src="https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=1469&auto=format&fit=crop" class="w-full h-56 object-cover group-hover:scale-105 transition-transform"></div><div class="p-6"><h3 class="font-serif text-xl font-bold mb-2">Consejos para un evento corporativo exitoso</h3><p class="text-gray-600 text-sm">Organizar eventos corporativos exitosos requiere una cuidadosa planificación. Te damos las claves del éxito...</p></div></a></div></div></div></section>
+        
+        <section id="contacto" class="page-section py-16 md:py-20 hidden"><div class="container mx-auto px-6"><div class="text-center mb-12 md:mb-16"><h2 class="text-3xl md:text-4xl font-serif font-bold text-gray-800">Hablemos de tu Evento</h2><p class="text-gray-600 mt-2 max-w-2xl mx-auto">Cuéntanos tu idea y juntos la haremos realidad. Solicita una cotización o agenda una asesoría con nosotros.</p></div><div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto"><div class="bg-white p-8 rounded-lg border shadow-sm"><form id="contact-form"><div class="mb-5"><label for="name_contact" class="block text-gray-700 mb-1 font-bold">Nombre</label><input type="text" id="name_contact" name="name" required class="w-full p-3 rounded border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-500 transition"></div><div class="mb-5"><label for="email_contact" class="block text-gray-700 mb-1 font-bold">Correo Electrónico</label><input type="email" id="email_contact" name="email" required class="w-full p-3 rounded border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-500 transition"></div><div class="mb-5"><label for="message_contact" class="block text-gray-700 mb-1 font-bold">Cuéntanos sobre tu evento</label><textarea id="message_contact" name="message" rows="5" required class="w-full p-3 rounded border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-500 transition"></textarea></div><button type="submit" class="w-full bg-yellow-600 text-white p-3 rounded-lg font-bold hover:bg-yellow-700 transition duration-300">Enviar Mensaje</button></form></div><div class="space-y-6 pt-4"><div class="flex items-start"><i data-feather="map-pin" class="w-6 h-6 mr-4 mt-1 text-yellow-600 flex-shrink-0"></i><div><h4 class="font-bold">Nuestra Oficina</h4><p>Av. Cobá 202, Cancún, Q.R., México</p></div></div><div class="flex items-start"><i data-feather="mail" class="w-6 h-6 mr-4 mt-1 text-yellow-600 flex-shrink-0"></i><div><h4 class="font-bold">Email</h4><a href="mailto:contacto@sebastianvernis.com" class="hover:text-yellow-600">contacto@sebastianvernis.com</a></div></div><div class="flex items-start"><i data-feather="phone" class="w-6 h-6 mr-4 mt-1 text-yellow-600 flex-shrink-0"></i><div><h4 class="font-bold">Teléfono</h4><a href="tel:+5213312345678" class="hover:text-yellow-600">52-1-33-12345678</a></div></div></div></div></div></section>
+    </main>
+
+    <footer class="bg-gray-800 text-white"><div class="container mx-auto px-6 py-12"><div class="grid grid-cols-1 md:grid-cols-4 gap-8"><div><h3 class="text-xl font-serif font-bold mb-4">Celebraciones <span class="text-yellow-500">Únicas</span></h3><p class="text-gray-400 text-sm">Expertos en crear momentos inolvidables.</p></div><div><h3 class="text-lg font-bold mb-4">Navegación</h3><ul class="space-y-2 text-sm"><li><a href="#inicio" class="nav-trigger cursor-pointer text-gray-400 hover:text-white">Inicio</a></li><li><a href="#servicios" class="nav-trigger cursor-pointer text-gray-400 hover:text-white">Servicios</a></li><li><a href="#cotizador" class="nav-trigger cursor-pointer text-gray-400 hover:text-white">Cotizador</a></li><li><a href="#galeria" class="nav-trigger cursor-pointer text-gray-400 hover:text-white">Galería</a></li></ul></div><div><h3 class="text-lg font-bold mb-4">Legal</h3><ul class="space-y-2 text-sm"><li><a href="#" class="text-gray-400 hover:text-white">Política de Privacidad</a></li><li><a href="#" class="text-gray-400 hover:text-white">Términos y Condiciones</a></li></ul></div><div><h3 class="text-lg font-bold mb-4">Síguenos</h3><div class="flex space-x-4"><a href="#" class="text-gray-400 hover:text-yellow-500 transition-colors"><i data-feather="instagram"></i></a><a href="#" class="text-gray-400 hover:text-yellow-500 transition-colors"><i data-feather="facebook"></i></a><a href="#" class="text-gray-400 hover:text-yellow-500 transition-colors"><i data-feather="pinterest"></i></a></div></div></div><div class="mt-10 border-t border-gray-700 pt-8 text-center text-gray-500 text-sm"><p>&copy; 2025 Celebraciones Únicas. Creado por Sebastián Vernis. Todos los derechos reservados.</p></div></div></footer>
+
+    <!-- Modals -->
+    <div id="booking-modal" class="modal fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center p-4 z-50 hidden opacity-0 visibility-hidden"><div class="modal-content bg-white w-full max-w-md mx-auto rounded-lg shadow-2xl p-8 transform scale-95"><div class="flex justify-between items-center mb-6"><h3 class="text-2xl font-serif font-bold">Solicitar Asesoría</h3><button class="close-modal-btn text-gray-500 hover:text-gray-800 text-3xl">&times;</button></div><form id="booking-form"><div class="mb-4"><label class="block text-gray-700 font-bold mb-2">Servicio de Interés:</label><p id="service-name" class="text-lg text-yellow-700 font-semibold"></p></div><div class="mb-4"><label for="booking_name" class="block text-gray-700 font-bold mb-2">Nombre Completo:</label><input type="text" id="booking_name" required class="w-full p-3 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-500 transition"></div><div class="mb-4"><label for="booking_email" class="block text-gray-700 font-bold mb-2">Correo Electrónico:</label><input type="email" id="booking_email" required class="w-full p-3 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-500 transition"></div><div class="mb-6"><label for="booking_date" class="block text-gray-700 font-bold mb-2">Fecha Estimada del Evento:</label><input type="date" id="booking_date" required class="w-full p-3 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-500 transition"></div><button type="submit" class="w-full bg-yellow-600 text-white p-3 rounded-lg font-bold text-lg hover:bg-yellow-700 transition">Enviar Solicitud</button></form></div></div>
+    <div id="confirmation-modal" class="modal fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center p-4 z-50 hidden opacity-0 visibility-hidden"><div class="modal-content bg-white w-full max-w-md mx-auto rounded-lg shadow-2xl p-8 text-center transform scale-95"><div id="confirmation-icon" class="flex justify-center mb-4"></div><h3 id="confirmation-title" class="text-2xl font-serif font-bold mb-4"></h3><p id="confirmation-message" class="text-gray-600 mb-6"></p><button class="close-modal-btn w-full bg-gray-700 text-white p-3 rounded-lg font-bold hover:bg-gray-800 transition">Cerrar</button></div></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            feather.replace();
+            
+            const mainContainer = document.querySelector('main');
+            const navTriggers = document.querySelectorAll('.nav-trigger');
+            const sections = document.querySelectorAll('.page-section');
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const modals = document.querySelectorAll('.modal');
+            const bookingModal = document.getElementById('booking-modal');
+            const confirmationModal = document.getElementById('confirmation-modal');
+            
+            function showSection(targetId) { sections.forEach(s => s.classList.add('hidden')); const el = document.querySelector(targetId); if(el) el.classList.remove('hidden'); updateActiveLinks(targetId); }
+            function updateActiveLinks(targetId) { document.querySelectorAll('.nav-link, .nav-button, .nav-link-mobile').forEach(l => { l.classList.remove('active'); if(l.getAttribute('href') === targetId) l.classList.add('active'); }); }
+            navTriggers.forEach(t => t.addEventListener('click', e => { e.preventDefault(); const id = e.currentTarget.getAttribute('href'); showSection(id); window.scrollTo(0,0); if(!mobileMenu.classList.contains('hidden')) mobileMenu.classList.add('hidden'); }));
+            mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+
+            function openModal(modal) { modal.classList.remove('hidden'); setTimeout(() => modal.classList.remove('opacity-0', 'visibility-hidden'), 10); }
+            function closeModal(modal) { modal.classList.add('opacity-0', 'visibility-hidden'); setTimeout(() => modal.classList.add('hidden'), 300); }
+            modals.forEach(m => m.addEventListener('click', e => { if (e.target.classList.contains('modal') || e.target.classList.contains('close-modal-btn')) closeModal(m); }));
+
+            function showConfirmation(type) {
+                const icon = confirmationModal.querySelector('#confirmation-icon');
+                const title = confirmationModal.querySelector('#confirmation-title');
+                const msg = confirmationModal.querySelector('#confirmation-message');
+                icon.innerHTML = `<div class="bg-green-100 text-green-700 rounded-full p-4"><i data-feather="check-circle" class="w-12 h-12"></i></div>`;
+                if (type === 'booking') { title.textContent = 'Solicitud Recibida'; msg.textContent = 'Gracias por tu interés. Nos pondremos en contacto contigo a la brevedad para agendar una asesoría.';
+                } else { title.textContent = 'Mensaje Enviado'; msg.textContent = 'Hemos recibido tu mensaje y te responderemos pronto. ¡Gracias!'; }
+                feather.replace();
+                openModal(confirmationModal);
+            }
+
+            mainContainer.addEventListener('click', function(e) {
+                const bookingBtn = e.target.closest('.booking-btn');
+                if(bookingBtn) {
+                    bookingModal.querySelector('#service-name').textContent = bookingBtn.dataset.service;
+                    bookingModal.querySelector('#booking_date').min = new Date().toISOString().split("T")[0];
+                    openModal(bookingModal);
+                }
+            });
+
+            document.getElementById('booking-form')?.addEventListener('submit', e => { e.preventDefault(); closeModal(bookingModal); showConfirmation('booking'); e.target.reset(); });
+            document.getElementById('contact-form')?.addEventListener('submit', e => { e.preventDefault(); showConfirmation('contact'); e.target.reset(); });
+            
+            const quoterConfig = {
+                basePrice: { boda: 1000, bautizo: 700, corporativo: 900, otro: 600 },
+                services: [ { id: 'mobiliario', name: 'Mobiliario Premium', price: 300 }, { id: 'musica', name: 'Música en Vivo / DJ', price: 400 }, { id: 'flores', name: 'Decoración Floral', price: 200 }, { id: 'foto', name: 'Fotografía', price: 360 }, { id: 'video', name: 'Video', price: 440 }, { id: 'catering', name: 'Catering Gourmet', price: 800 }, { id: 'barra', name: 'Barra Libre', price: 500 }, { id: 'iluminacion', name: 'Iluminación', price: 160 }, ],
+                packages: { boda: ['mobiliario', 'musica', 'flores'], bautizo: ['mobiliario', 'catering', 'flores'], corporativo: ['mobiliario', 'musica', 'barra'], }
+            };
+            const eventTypeEl = document.getElementById('eventType');
+            const guestCountEl = document.getElementById('guestCount');
+            const guestCountLabelEl = document.getElementById('guestCountLabel');
+            const servicesListEl = document.getElementById('services-list');
+            const quoteSummaryEl = document.getElementById('quote-summary');
+            const totalPriceEl = document.getElementById('total-price');
+            
+            function renderServices() {
+                if (!servicesListEl) return;
+                servicesListEl.innerHTML = quoterConfig.services.map(s => `<label class="flex items-center space-x-2 cursor-pointer"><input type="checkbox" id="service-${s.id}" data-service-id="${s.id}" class="h-5 w-5 rounded border-gray-300 text-yellow-600 focus:ring-yellow-500 service-checkbox"><span>${s.name}</span></label>`).join('');
+            }
+
+            function updateQuote() {
+                if(!eventTypeEl || !guestCountEl || !quoteSummaryEl || !totalPriceEl) return;
+                const eventType = eventTypeEl.value;
+                const guestCount = parseInt(guestCountEl.value);
+                let baseCost = quoterConfig.basePrice[eventType] * guestCount;
+                let servicesCost = 0;
+                let summaryHTML = `<p class="flex justify-between"><span>Costo Base (${guestCount} personas)</span> <span>$${baseCost.toFixed(2)}</span></p>`;
+                
+                document.querySelectorAll('.service-checkbox:checked').forEach(checkbox => {
+                    const serviceId = checkbox.dataset.serviceId;
+                    const service = quoterConfig.services.find(s => s.id === serviceId);
+                    if(service) { const serviceTotal = service.price * guestCount; servicesCost += serviceTotal; summaryHTML += `<p class="flex justify-between"><span>${service.name}</span> <span>$${serviceTotal.toFixed(2)}</span></p>`; }
+                });
+                
+                const totalCost = baseCost + servicesCost;
+                quoteSummaryEl.innerHTML = summaryHTML;
+                totalPriceEl.textContent = `$${totalCost.toLocaleString('es-MX', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} MXN`;
+            }
+
+            eventTypeEl?.addEventListener('change', updateQuote);
+            guestCountEl?.addEventListener('input', () => { guestCountLabelEl.textContent = guestCountEl.value; updateQuote(); });
+            mainContainer.addEventListener('change', (e) => { if(e.target.classList.contains('service-checkbox')) updateQuote(); });
+            
+            document.querySelectorAll('.package-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const packageType = e.target.dataset.package;
+                    const servicesInPackage = quoterConfig.packages[packageType];
+                    eventTypeEl.value = packageType;
+                    document.querySelectorAll('.service-checkbox').forEach(cb => { cb.checked = servicesInPackage.includes(cb.dataset.serviceId); });
+                    updateQuote();
+                    document.getElementById('custom-quoter').scrollIntoView({ behavior: 'smooth' });
+                });
+            });
+
+            if(document.getElementById('cotizador')){ renderServices(); updateQuote(); }
+
+            showSection('#inicio');
+        });
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,48 @@
+<!-- Sección de Cotizador Unificado -->
+<section id="cotizador">
+  <h1>Configurador de Proyectos y Servicios</h1>
+  
+  <!-- Portal del Cliente - Acceso Fijo -->
+  <div class="bg-gradient-to-r from-purple-900 to-pink-900 p-6 rounded-lg mb-8 text-center">
+    <h2 class="text-2xl font-bold text-white mb-3">
+      <i class="fas fa-user-shield mr-2"></i>Portal del Cliente
+    </h2>
+    <p class="text-gray-200 mb-4">¿Ya tienes una cotización o proyecto en curso? Consulta el estado aquí.</p>
+    <a href="portal.html" class="bg-white text-purple-900 hover:bg-gray-100 font-bold py-3 px-6 rounded-lg transition-colors inline-block">
+      <i class="fas fa-external-link-alt mr-2"></i>Acceder al Portal
+    </a>
+  </div>
+  
+  <p class="text-center text-gray-400 mb-8">Construya su propia solución a la medida seleccionando los servicios que necesita. Incluye tanto servicios técnicos modulares como paquetes completos listos para usar.</p>
+  
+  <div id="cotizador-content-wrapper">
+    <div id="product-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-8">
+      <!-- Las tarjetas de productos se insertarán aquí con JS -->
+    </div>
+    
+    <!-- Carrito de Servicios -->
+    <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-4 items-center">
+        <div class="md:col-span-1">
+          <h3 class="font-bold text-lg mb-2 text-white">Servicios Seleccionados:</h3>
+          <div id="cart-items" class="text-sm space-y-1 max-h-24 overflow-y-auto text-gray-300">
+            <p class="text-gray-500">El carrito está vacío.</p>
+          </div>
+        </div>
+        <div class="md:col-span-3 grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
+          <div class="bg-gray-700 p-4 rounded-lg">
+            <p class="text-gray-300 font-semibold">Costo de Implementación</p>
+            <p id="total-onetime" class="text-2xl font-bold text-white">$0.00</p>
+          </div>
+          <div class="bg-gray-700 p-4 rounded-lg">
+            <p class="text-gray-300 font-semibold">Costos Recurrentes</p>
+            <p id="total-monthly" class="text-2xl font-bold text-white">$0.00</p>
+          </div>
+          <button id="generate-contract-btn" class="bg-purple-600 hover:bg-purple-700 text-white h-full py-2 px-4 rounded-lg font-semibold text-lg transition-colors" disabled>
+            <i class="fas fa-file-signature mr-2"></i>Generar Cotización
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hogar Ideal - Encuentra la Propiedad de tus Sueños</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Lato & Playfair Display -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+    
+    <!-- Feather Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+    
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+
+    <style>
+        .font-serif { font-family: 'Playfair Display', serif; }
+        .font-sans { font-family: 'Lato', sans-serif; }
+        body {
+            background-color: #f7f9fc;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23dbeafe' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            font-family: 'Lato', sans-serif;
+        }
+        .nav-link.active { color: #1e40af; font-weight: 700; }
+        .nav-button.active { background-color: #1e3a8a; box-shadow: 0 0 0 3px #bfdbfe; }
+        .nav-link-mobile.active { background-color: #eff6ff; color: #1e40af; font-weight: 700; }
+        .page-section { animation: fadeIn 0.6s ease-in-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .hero-bg {
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1470&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+        }
+        .modal { transition: opacity 0.3s ease, visibility 0.3s ease; }
+        .modal-content { transition: transform 0.3s ease; }
+        .modal.hidden { pointer-events: none; }
+        .modal.hidden .modal-content { transform: scale(0.95); }
+
+        #mapa { height: 85vh; width: 100%; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); border: 1px solid #ddd; }
+        .leaflet-popup-content-wrapper { border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.15); background: #fff; }
+        .leaflet-popup-content { font-size: 14px; line-height: 1.6; margin: 0 !important; padding: 0 !important; width: 280px !important; }
+        .popup-imagen { width: 100%; height: 120px; object-fit: cover; border-top-left-radius: 12px; border-top-right-radius: 12px; display: block; background-color: #eee; }
+        .popup-info { padding: 15px; }
+        .popup-info .tipo-propiedad { font-size: 12px; font-weight: bold; color: #fff; padding: 3px 8px; border-radius: 12px; display: inline-block; margin-bottom: 8px; }
+        .popup-info .precio { font-size: 20px; font-weight: bold; color: #1a1a1a; margin: 0 0 10px 0; }
+        .popup-info p { margin: 4px 0; color: #555; }
+        .popup-info .compromiso-clave { margin-top: 12px; padding-top: 10px; border-top: 1px solid #eee; font-style: italic; color: #333; }
+        .compromiso-clave strong { font-style: normal; }
+    </style>
+</head>
+<body class="text-gray-700">
+
+    <!-- Header -->
+    <header class="bg-white/90 backdrop-blur-md shadow-sm sticky top-0 z-40">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#inicio" class="nav-trigger cursor-pointer text-2xl font-serif font-bold text-gray-800">Hogar <span class="text-blue-700">Ideal</span></a>
+            <div id="desktop-menu" class="hidden md:flex space-x-8 items-center font-sans">
+                <a href="#inicio" class="nav-trigger nav-link cursor-pointer text-gray-600 hover:text-blue-700">Inicio</a>
+                <a href="#propiedades" class="nav-trigger nav-link cursor-pointer text-gray-600 hover:text-blue-700">Propiedades</a>
+                <a href="#analisis-mercado" class="nav-trigger nav-link cursor-pointer text-gray-600 hover:text-blue-700">Análisis de Mercado</a>
+                <a href="#servicios" class="nav-trigger nav-link cursor-pointer text-gray-600 hover:text-blue-700">Servicios</a>
+                <a href="#blog" class="nav-trigger nav-link cursor-pointer text-gray-600 hover:text-blue-700">Blog</a>
+                <a href="#contacto" class="nav-trigger nav-button cursor-pointer bg-blue-700 text-white px-4 py-2 rounded-lg hover:bg-blue-800">Contacto</a>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden text-gray-700 focus:outline-none"><i data-feather="menu"></i></button>
+        </nav>
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 border-t"><a href="#inicio" class="nav-trigger nav-link-mobile block py-2 px-3 rounded-md text-gray-600 hover:bg-gray-100 cursor-pointer">Inicio</a><a href="#propiedades" class="nav-trigger nav-link-mobile block py-2 px-3 rounded-md text-gray-600 hover:bg-gray-100 cursor-pointer">Propiedades</a><a href="#analisis-mercado" class="nav-trigger nav-link-mobile block py-2 px-3 rounded-md text-gray-600 hover:bg-gray-100 cursor-pointer">Análisis de Mercado</a><a href="#servicios" class="nav-trigger nav-link-mobile block py-2 px-3 rounded-md text-gray-600 hover:bg-gray-100 cursor-pointer">Servicios</a><a href="#blog" class="nav-trigger nav-link-mobile block py-2 px-3 rounded-md text-gray-600 hover:bg-gray-100 cursor-pointer">Blog</a><a href="#contacto" class="nav-trigger nav-link-mobile block mt-2 bg-blue-700 text-white text-center px-4 py-2 rounded-lg hover:bg-blue-800 cursor-pointer">Contacto</a></div>
+    </header>
+
+    <main>
+        <!-- Sections -->
+        <section id="inicio" class="page-section hero-bg text-white"><div class="container mx-auto px-6 text-center py-24 md:py-48"><h1 class="text-4xl md:text-6xl font-serif font-extrabold leading-tight mb-4">Encuentra tu Hogar Ideal</h1><p class="text-lg md:text-xl text-gray-200 max-w-3xl mx-auto mb-8 font-sans">Te acompañamos en cada paso del camino para que descubras la propiedad de tus sueños. Explora nuestro catálogo exclusivo y comienza una nueva etapa.</p><a href="#propiedades" class="nav-trigger cursor-pointer bg-blue-700 text-white px-8 py-3 rounded-lg font-bold text-lg hover:bg-blue-800 transition duration-300">Ver Propiedades</a></div></section>
+        
+        <section id="propiedades" class="page-section py-16 md:py-20 hidden"><div class="container mx-auto px-6"><div class="text-center mb-12 md:mb-16"><h2 class="text-3xl md:text-4xl font-serif font-bold">Catálogo de Propiedades</h2><p class="text-gray-600 mt-2 max-w-2xl mx-auto">Una selección exclusiva de las mejores propiedades en las ubicaciones más deseadas.</p></div><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"><div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition duration-300 group flex flex-col"><div class="overflow-hidden relative"><img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?q=80&w=1374&auto=format&fit=crop" onerror="this.onerror=null;this.src='https://placehold.co/600x400/BFDBFE/1E3A8A?text=Villa+Moderna';" alt="Villa moderna con piscina" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"><div class="absolute top-4 left-4 bg-blue-700 text-white text-sm font-bold px-3 py-1 rounded-full">En Venta</div></div><div class="p-6 flex flex-col flex-grow"><h3 class="text-2xl font-serif font-bold mb-2">Villa de Lujo en Cancún</h3><p class="text-blue-700 font-semibold mb-4">Av. Cobá, Cancún, Q.R.</p><p class="text-3xl font-bold font-serif text-gray-800 mb-4 flex-grow">$24,000,000 MXN</p><div class="flex justify-between items-center text-gray-600 border-t pt-4 mb-4"><span class="flex items-center" title="Habitaciones"><i data-feather="bed" class="w-5 h-5 mr-2"></i> 4</span><span class="flex items-center" title="Baños"><i data-feather="wind" class="w-5 h-5 mr-2"></i> 5</span><span class="flex items-center" title="Superficie"><i data-feather="maximize" class="w-5 h-5 mr-2"></i> 450 m²</span></div><button class="details-btn mt-auto block text-center w-full bg-blue-700 text-white font-bold py-2 rounded-lg hover:bg-blue-800 transition-colors" data-property-id="villa-cancun">Ver Detalles</button></div></div></div></div></section>
+        
+        <section id="analisis-mercado" class="page-section py-16 md:py-20 hidden">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-serif font-bold">Análisis de Mercado de Renta - CDMX</h2>
+                    <p class="text-gray-600 mt-2 max-w-2xl mx-auto">Visualiza y compara diferentes opciones de renta en la Ciudad de México. Haz clic en los marcadores para ver los detalles de cada propiedad.</p>
+                </div>
+                <div id="mapa"></div>
+            </div>
+        </section>
+
+        <section id="servicios" class="page-section py-16 md:py-20 hidden"><div class="container mx-auto px-6"><div class="text-center mb-12 md:mb-16"><h2 class="text-3xl md:text-4xl font-serif font-bold">Servicios Personalizados</h2><p class="text-gray-600 mt-2 max-w-2xl mx-auto">Ofrecemos asesoría experta para que tu decisión sea la correcta. Reserva el servicio que mejor se adapte a tus necesidades.</p></div><div class="grid grid-cols-1 md:grid-cols-3 gap-8"><div class="bg-white p-8 rounded-lg text-center border shadow-sm hover:shadow-xl transition-shadow"><div class="flex justify-center mb-4"><div class="bg-blue-100 text-blue-700 rounded-full p-4"><i data-feather="eye" class="w-8 h-8"></i></div></div><h3 class="text-xl font-bold font-serif mb-2">Visita Guiada</h3><p class="text-gray-600 mb-4">Recorre tus propiedades favoritas en persona con uno de nuestros agentes expertos.</p><p class="text-2xl font-bold text-blue-700 mb-6">$1,000 MXN</p><button class="booking-btn w-full bg-blue-700 text-white font-bold py-2 rounded-lg hover:bg-blue-800" data-service="Visita Guiada" data-price="1000">Reservar Ahora</button></div></div></div></section>
+        
+        <section id="blog" class="page-section py-16 md:py-20 hidden"><div class="container mx-auto px-6"><div class="text-center mb-12 md:mb-16"><h2 class="text-3xl md:text-4xl font-serif font-bold">Blog de Hogar Ideal</h2><p class="text-gray-600 mt-2 max-w-2xl mx-auto">Consejos, guías y noticias del sector inmobiliario para ayudarte a tomar las mejores decisiones.</p></div><div class="grid grid-cols-1 md:grid-cols-3 gap-8"><div class="bg-white rounded-lg shadow-md overflow-hidden group"><a href="#" class="block"><div class="overflow-hidden"><img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1373&auto=format&fit=crop" onerror="this.onerror=null;this.src='https://placehold.co/600x400/9CA3AF/FFFFFF?text=Casa+y+llaves';" alt="Hombre feliz mostrando las llaves de su nueva casa" class="w-full h-56 object-cover group-hover:scale-105 transition-transform"></div><div class="p-6"><h3 class="font-serif text-xl font-bold mb-2">Los mejores consejos para comprar la casa de tus sueños</h3><p class="text-gray-600 text-sm">A la hora de buscar la casa de tus sueños, es necesario tener en cuenta una serie de consejos que te ayudarán a tomar la mejor decisión...</p></div></a></div></div></div></section>
+        
+        <section id="contacto" class="page-section py-16 md:py-20 hidden"><div class="container mx-auto px-6"><div class="text-center mb-12 md:mb-16"><h2 class="text-3xl md:text-4xl font-serif font-bold">Ponte en Contacto</h2><p class="text-gray-600 mt-2 max-w-2xl mx-auto">¿Listo para encontrar tu hogar ideal? Nuestro equipo está aquí para ayudarte. Envíanos un mensaje y te responderemos a la brevedad.</p></div><div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto"><div class="bg-white p-8 rounded-lg border shadow-sm"><form id="contact-form"><div class="mb-5"><label for="name_contact" class="block text-gray-700 mb-1 font-bold">Nombre</label><input type="text" id="name_contact" name="name" required class="w-full p-3 rounded border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"></div><div class="mb-5"><label for="email_contact" class="block text-gray-700 mb-1 font-bold">Correo Electrónico</label><input type="email" id="email_contact" name="email" required class="w-full p-3 rounded border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"></div><div class="mb-5"><label for="message_contact" class="block text-gray-700 mb-1 font-bold">Mensaje</label><textarea id="message_contact" name="message" rows="5" required class="w-full p-3 rounded border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"></textarea></div><button type="submit" class="w-full bg-blue-700 text-white p-3 rounded-lg font-bold hover:bg-blue-800 transition duration-300">Enviar Mensaje</button></form></div><div class="space-y-6 pt-4"><div class="flex items-start"><i data-feather="map-pin" class="w-6 h-6 mr-4 mt-1 text-blue-700 flex-shrink-0"></i><div><h4 class="font-bold">Nuestra Oficina</h4><p>Av. Canal Nacional 1996, Valle del Sur, Iztapalapa, 09819 Ciudad de México, CDMX</p></div></div></div></div></div></section>
+    </main>
+
+    <footer class="bg-gray-800 text-white"><div class="container mx-auto px-6 py-8"><div class="grid grid-cols-1 md:grid-cols-4 gap-8"><div><h3 class="text-xl font-serif font-bold mb-4">Hogar <span class="text-blue-500">Ideal</span></h3><p class="text-gray-400 text-sm">Tu aliado de confianza en bienes raíces.</p></div><div><h3 class="text-lg font-bold mb-4">Secciones</h3><ul class="space-y-2 text-sm"><li><a href="#inicio" class="nav-trigger cursor-pointer text-gray-400 hover:text-white">Inicio</a></li><li><a href="#propiedades" class="nav-trigger cursor-pointer text-gray-400 hover:text-white">Propiedades</a></li><li><a href="#analisis-mercado" class="nav-trigger cursor-pointer text-gray-400 hover:text-white">Análisis de Mercado</a></li><li><a href="#servicios" class="nav-trigger cursor-pointer text-gray-400 hover:text-white">Servicios</a></li><li><a href="#blog" class="nav-trigger cursor-pointer text-gray-400 hover:text-white">Blog</a></li></ul></div></div><div class="mt-8 border-t border-gray-700 pt-8 text-center text-gray-500 text-sm"><p>&copy; 2025 Hogar Ideal. Creado por Sebastián Vernis. Todos los derechos reservados.</p></div></div></footer>
+
+    <!-- Modals -->
+    <div id="booking-modal" class="modal fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center p-4 z-50 hidden opacity-0 visibility-hidden"><div class="modal-content bg-white w-full max-w-lg mx-auto rounded-lg shadow-2xl transform scale-95"><div id="booking-view"><div class="flex justify-between items-center p-6 border-b"><h3 class="text-2xl font-serif font-bold">Reservar Servicio</h3><button class="close-modal-btn text-gray-500 hover:text-gray-800 text-3xl">&times;</button></div><form id="booking-form" class="p-6"><div class="mb-4"><label class="block text-gray-700 font-bold mb-2">Servicio:</label><p id="service-name" class="text-lg text-blue-700 font-semibold"></p></div><div class="mb-4"><label for="booking_name" class="block text-gray-700 font-bold mb-2">Nombre Completo:</label><input type="text" id="booking_name" required class="w-full p-3 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"></div><div class="mb-6"><label for="booking_date" class="block text-gray-700 font-bold mb-2">Fecha Deseada:</label><input type="date" id="booking_date" required class="w-full p-3 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"></div><div class="mt-6 border-t pt-6"><h4 class="font-bold mb-4 text-center">Elige tu método de pago</h4><div class="flex flex-col sm:flex-row gap-4"><button type="button" id="pay-later-btn" class="w-full bg-gray-200 text-gray-800 p-3 rounded-lg font-bold hover:bg-gray-300 transition">Pagar en la Cita</button><button type="button" id="pay-now-btn" class="w-full bg-blue-700 text-white p-3 rounded-lg font-bold hover:bg-blue-800 transition">Pagar en Línea</button></div></div></form></div><div id="payment-view" class="hidden"><div class="flex items-center p-6 border-b"><button id="back-to-booking-btn" class="text-gray-500 hover:text-gray-800 mr-4"><i data-feather="arrow-left"></i></button><h3 class="text-2xl font-serif font-bold">Realizar Pago</h3></div><form id="payment-form" class="p-6"><div class="mb-4"><label for="card_number">Número de Tarjeta</label><input type="text" id="card_number" placeholder="**** **** **** ****" required class="w-full p-2 mt-1 rounded border border-gray-300"></div><div class="grid grid-cols-2 gap-4"><div class="mb-4"><label for="card_expiry">Expiración</label><input type="text" id="card_expiry" placeholder="MM/AA" required class="w-full p-2 mt-1 rounded border border-gray-300"></div><div class="mb-4"><label for="card_cvc">CVC</label><input type="text" id="card_cvc" placeholder="***" required class="w-full p-2 mt-1 rounded border border-gray-300"></div></div><button type="submit" class="w-full mt-4 bg-blue-700 text-white font-bold py-3 rounded-lg hover:bg-blue-800">Pagar <span id="payment-total"></span></button></form></div></div></div>
+    <div id="details-modal" class="modal fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center p-4 z-50 hidden opacity-0 visibility-hidden overflow-y-auto"><div class="modal-content bg-white w-full max-w-4xl mx-auto rounded-lg shadow-2xl transform scale-95 my-8"><div class="p-4 flex justify-between items-center border-b"><h3 id="details-title" class="text-2xl font-serif font-bold"></h3><button class="close-modal-btn text-gray-500 hover:text-gray-800 text-4xl">&times;</button></div><div id="details-content" class="p-6 md:p-8"></div></div></div>
+    <div id="confirmation-modal" class="modal fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center p-4 z-50 hidden opacity-0 visibility-hidden"><div class="modal-content bg-white w-full max-w-md mx-auto rounded-lg shadow-2xl p-8 text-center transform scale-95"><div id="confirmation-icon" class="flex justify-center mb-4"></div><h3 id="confirmation-title" class="text-2xl font-serif font-bold mb-4"></h3><p id="confirmation-message" class="text-gray-600 mb-6"></p><button class="close-modal-btn w-full bg-gray-700 text-white p-3 rounded-lg font-bold hover:bg-gray-800 transition">Cerrar</button></div></div>
+    
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            feather.replace();
+            
+            const mainContainer = document.querySelector('main');
+            const navTriggers = document.querySelectorAll('.nav-trigger');
+            const sections = document.querySelectorAll('.page-section');
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const modals = document.querySelectorAll('.modal');
+            const bookingModal = document.getElementById('booking-modal');
+            const confirmationModal = document.getElementById('confirmation-modal');
+            
+            let map;
+            let mapInitialized = false;
+
+            function showSection(targetId) {
+                sections.forEach(s => s.classList.add('hidden'));
+                const el = document.querySelector(targetId);
+                if (el) el.classList.remove('hidden');
+                updateActiveLinks(targetId);
+
+                if (targetId === '#analisis-mercado' && !mapInitialized) {
+                    initMap();
+                } else if (targetId === '#analisis-mercado' && map) {
+                    map.invalidateSize();
+                }
+            }
+            function updateActiveLinks(targetId) { document.querySelectorAll('.nav-link, .nav-button, .nav-link-mobile').forEach(l => { l.classList.remove('active'); if(l.getAttribute('href') === targetId) l.classList.add('active'); }); }
+            navTriggers.forEach(t => { t.addEventListener('click', e => { e.preventDefault(); const id = e.currentTarget.getAttribute('href'); showSection(id); window.scrollTo(0,0); if(!mobileMenu.classList.contains('hidden')) mobileMenu.classList.add('hidden'); }));
+            mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+
+            function openModal(modal) { modal.classList.remove('hidden'); setTimeout(() => modal.classList.remove('opacity-0', 'visibility-hidden'), 10); }
+            function closeModal(modal) { modal.classList.add('opacity-0', 'visibility-hidden'); setTimeout(() => modal.classList.add('hidden'), 300); }
+            modals.forEach(m => m.addEventListener('click', e => { if (e.target.classList.contains('modal') || e.target.classList.contains('close-modal-btn')) closeModal(m); }));
+
+            function showConfirmation(type) {
+                const icon = confirmationModal.querySelector('#confirmation-icon');
+                const title = confirmationModal.querySelector('#confirmation-title');
+                const msg = confirmationModal.querySelector('#confirmation-message');
+                icon.innerHTML = `<div class="bg-green-100 text-green-700 rounded-full p-4"><i data-feather="check-circle" class="w-12 h-12"></i></div>`;
+                if (type === 'booking-later') { title.textContent = 'Cita Agendada'; msg.textContent = 'Tu cita ha sido reservada. El pago se realizará en nuestras oficinas. ¡Te esperamos!';
+                } else if (type === 'booking-paid') { title.textContent = '¡Cita y Pago Confirmados!'; msg.textContent = 'Tu cita ha sido agendada y pagada exitosamente. Recibirás un correo de confirmación.';
+                } else { title.textContent = 'Mensaje Enviado'; msg.textContent = 'Gracias por contactarnos. Te responderemos pronto.'; }
+                feather.replace();
+                openModal(confirmationModal);
+            }
+            
+            const bookingView = document.getElementById('booking-view');
+            const paymentView = document.getElementById('payment-view');
+            const backToBookingBtn = document.getElementById('back-to-booking-btn');
+
+            mainContainer.addEventListener('click', function(e) {
+                const bookingBtn = e.target.closest('.booking-btn');
+                if(bookingBtn) {
+                    bookingModal.querySelector('#service-name').textContent = bookingBtn.dataset.service;
+                    bookingModal.querySelector('#payment-total').textContent = `$${parseFloat(bookingBtn.dataset.price).toLocaleString('es-MX')} MXN`;
+                    bookingModal.querySelector('#booking_date').min = new Date().toISOString().split("T")[0];
+                    bookingView.classList.remove('hidden');
+                    paymentView.classList.add('hidden');
+                    openModal(bookingModal);
+                }
+            });
+
+            document.getElementById('pay-later-btn')?.addEventListener('click', () => { closeModal(bookingModal); showConfirmation('booking-later'); document.getElementById('booking-form').reset(); });
+            document.getElementById('pay-now-btn')?.addEventListener('click', () => { bookingView.classList.add('hidden'); paymentView.classList.remove('hidden'); });
+            backToBookingBtn?.addEventListener('click', () => { paymentView.classList.add('hidden'); bookingView.classList.remove('hidden'); });
+            document.getElementById('payment-form')?.addEventListener('submit', e => { e.preventDefault(); closeModal(bookingModal); showConfirmation('booking-paid'); document.getElementById('booking-form').reset(); e.target.reset(); });
+            document.getElementById('contact-form')?.addEventListener('submit', e => { e.preventDefault(); showConfirmation('contact'); e.target.reset(); });
+            
+            function initMap() {
+                if (mapInitialized) return;
+                const latitudMexico = 19.4326;
+                const longitudMexico = -99.1332;
+                map = L.map('mapa').setView([latitudMexico, longitudMexico], 11);
+                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19, attribution: '&copy; OpenStreetMap' }).addTo(map);
+                const propiedades = [ { id: "CDMX-R-01", tipo: "Cuarto", precio: 3200, alcaldia: "Iztacalco", colonia: "Granjas México", compromiso: "Costo ultra bajo, servicios incluidos, pero es cuarto compartido.", lat: 19.4005, lng: -99.1025 }, { id: "CDMX-R-02", tipo: "Cuarto", precio: 3800, alcaldia: "Gustavo A. Madero", colonia: "Vallejo", compromiso: "Renta baja, baño privado, pero requiere contrato de 1 año y cuota de investigación.", lat: 19.4770, lng: -99.1440 }, { id: "CDMX-R-03", tipo: "Departamento", precio: 4500, alcaldia: "Xochimilco", colonia: "Huichapan", compromiso: "Departamento real a precio muy bajo, pero en el extremo sur y requiere fiador.", lat: 19.2600, lng: -99.1100 }, { id: "CDMX-R-20", tipo: "Departamento", precio: 7000, alcaldia: "Gustavo A. Madero", colonia: "Ex Escuela de Tiro", compromiso: "Espacioso (60m²) para el precio, listado por Houm (proceso podría ser más fácil).", lat: 19.5100, lng: -99.1050 }];
+                function crearIcono(color) { const html = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="${color}" width="28px" height="28px" style="transform: translate(-14px, -28px); filter: drop-shadow(0 2px 3px rgba(0,0,0,0.4));"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/><circle cx="12" cy="9.5" r="2.5" fill="white" fill-opacity="0.5"/></svg>`; return L.divIcon({ html: html, className: '', iconSize: [0, 0], }); }
+                const iconos = { 'Departamento': crearIcono('#d9534f'), 'Estudio': crearIcono('#5cb85c'), 'Loft': crearIcono('#5cb85c'), 'Cuarto': crearIcono('#428bca') };
+                const colorEtiqueta = { 'Departamento': '#d9534f', 'Estudio': '#5cb85c', 'Loft': '#5cb85c', 'Cuarto': '#428bca' };
+                const group = new L.featureGroup();
+                propiedades.forEach(prop => { const marcador = L.marker([prop.lat, prop.lng], { icon: iconos[prop.tipo] || iconos['Cuarto'] }); const popupContent = `<img src="https://placehold.co/280x120/EAEAEA/777777?text=${prop.id}" alt="Imagen de ${prop.tipo}" class="popup-imagen"><div class="popup-info"><span class="tipo-propiedad" style="background-color: ${colorEtiqueta[prop.tipo] || '#428bca'};">${prop.tipo}</span><h3 class="precio">$${prop.precio.toLocaleString('es-MX')} MXN / mes</h3><p><strong>Ubicación:</strong> ${prop.colonia}, ${prop.alcaldia}</p><div class="compromiso-clave"><strong>Análisis:</strong> ${prop.compromiso}</div></div>`; marcador.bindPopup(popupContent); group.addLayer(marcador); });
+                group.addTo(map);
+                map.fitBounds(group.getBounds().pad(0.1));
+                mapInitialized = true;
+            }
+            
+            showSection('#inicio');
+        });
+    </script>
+</body>
+</html>
+
